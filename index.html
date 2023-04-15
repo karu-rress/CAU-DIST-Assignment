@@ -1,10 +1,47 @@
 <!DOCTYPE html>
+<html lang="ko">
 <head>
-    <meta charset="utf-8" lang="ko">
+    <meta charset="utf-8">
+    <link href="./styles/index.css" rel="stylesheet">
+    <link href="./styles/footer.css" rel="stylesheet">
     <title>Rolling Ress Library</title>
+    <script src="./scripts/reload.js"></script>
+    <script src="./scripts/includeHTML.js"></script>
 </head>
 <body>
-    <h1 style="font-family:'Segoe UI', sans-serif;">Rolling Ress Library</h1>
+    <header>
+        <div><img src="./resources/Rolling Ress.png" alt="Rolling Ress 로고" height="60px"></div>
+        <h1>Rolling Ress Library</h1>
+        <input type="text" name="search" class="box" placeholder="도서를 검색하세요"/><br>
+        <input type="button" value="🔍" onclick="test()"/>
+    </header>
+    <nav>
+        <a href="./books/mothly.php" class="menu">새로 들어온 도서</a>
+        <a href="./books/all.php" class="menu">전체 도서</a>
+        <a href="./manage/add.php" id="manage">도서 등록(관리자)</a>
+        <script defer language="javascript">
+            var value = document.cookie.match('(^|;) ?' + 'userlevel' + '=([^;]*)(;|$)');
+            if ((value? value[2] : null) == 'admin') {
+                document.getElementById('manage').style.visibility = 'visible'; 
+            } else {
+                document.getElementById('manage').style.visibility = 'hidden'; 
+            }
+        </script>
+        <div>
+            <a href="./account/signin.php" class="user">Sign In</a>
+            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <a href="./account/signup.php" class="user">Sign Up</a>
+        </div>
+    </nav>
+    <section>
 
+    <section>
+    <article>
 
+    </article>
+    <footer include-html="./htmls/footer.html">
 </body>
+<script>
+    includeHTML();
+</script>
+</html>

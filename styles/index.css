@@ -1,0 +1,69 @@
+@charset "utf-8";
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:center;
+    align-items: center;
+    align-content: space-between;
+    
+    
+    height: 140px;
+    width: 100vw;
+    background-color: #55555522;
+}
+
+header > div {
+    margin-right: 15px;
+}
+
+header input[type="text"] {
+    font-size: 20px;
+    height: 40px;
+    width: 400px;
+}
+
+header input[type="button"] {
+    font-size: 20px;
+    height: 46px;
+    width: 46px;
+}
+
+h1 {
+    color: #1D4582; 
+    margin-right: 15px;
+    font-size: 37px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: space-between;
+    justify-content: space-evenly;
+    
+    height: 60px;
+    border: 1px solid #1D458299;
+}
+
+nav a.menu, #manage {
+    color: black;
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+a.user, span {
+    color: grey;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <meta charset="utf-8" lang="ko"/>
+    <meta charset="utf-8"/>
     <title>Rolling Ress Library</title>
     <link href="account.css" rel="stylesheet">
+    <script async src="../reload.js"></script>
     <script>
   function checkform() {
     $uid = document.review_table.custom_id.value;
@@ -28,34 +29,29 @@
       return;
     }
 
-    document.review_table.submit();
+    // document.review_table.submit();
   }
 
+  /*
   function goLoginform() {
     location.href='./login_form.php';
   }
+  */
 </script>
 <body>
-  <br>
-  <br>
   <h1>SIGN UP</h1>
-  <br>
   <div class="user_input">
-    <input type="text" name="signup_id" class="box" placeholder="아이디"/><br>
-    <input type="password" name="signup_pwd" class="box" placeholder="비밀번호"/><br>
-    <input type="text" name="signup_name" class="box" placeholder="이름"/><br>
-    <input type="text" name="signup_age" class="box" placeholder="나이"/><br><br>
-
+    <input type="text" name="signup_id" class="box" placeholder="아이디"/>
+    <input type="password" name="signup_pwd" class="box" placeholder="비밀번호"/>
+    <input type="text" name="signup_name" class="box" placeholder="이름"/>
+    <input type="text" name="signup_age" class="box" placeholder="나이"/>
+    <hr>
     <input type="button" value="회원가입" OnClick="checkform();"/>
   </div>
   <br><br>
   <p>Rolling Ress Library<br>Copyright 2023. Rolling Ress, All rights reserved.</p>
-  <p style="margin: 0 auto;"><a target="_blank" href="https://blog.naver.com/rollingress">Rolling Ress Naver Blog</a>
-
-  <br>
-  <p><b>전자정보 보안기술 <b><mark>A+</mark></b> 받길 기원합니다</b></p>
-
-  <img src="../ass.jpg" style="margin: 0 auto">
+  <p style="margin: 0 auto;">
+  <a target="_blank" href="https://blog.naver.com/rollingress">Rolling Ress Naver Blog</a>
     <!--
 
         CREATE TABLE `info` (
