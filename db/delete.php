@@ -3,17 +3,17 @@
 //    error_reporting(E_ALL);
 //    ini_set("display_errors", 1);
 
-    include './dbconn.php';
+    include '../db/connect.php';
 
-    $uid=$_GET['id'];
+    $isbn=$_GET['isbn'];
 
-    $query="DELETE from info where id = '$uid'";
+    $query="DELETE from bookinfo where isbn = '$isbn'";
     echo $query;
     mysqli_query($connect, $query);
 
     echo"
     <script>
-    location.href='./main.php';
+    location.href='/index.html';
     </script>
     ";
 

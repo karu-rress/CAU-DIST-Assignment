@@ -2,44 +2,58 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-    <link href="./styles/index.css" rel="stylesheet">
-    <link href="./styles/footer.css" rel="stylesheet">
+    <link href="/styles/index.css" rel="stylesheet">
+    <link href="/styles/header.css" rel="stylesheet">
+    <link href="/styles/nav.css" rel="stylesheet">
+    <link href="/styles/footer.css" rel="stylesheet">
     <title>Rolling Ress Library</title>
-    <script src="./scripts/reload.js"></script>
-    <script src="./scripts/includeHTML.js"></script>
+    <script src="/scripts/includeHTML.js"></script>
 </head>
 <body>
-    <header>
-        <div><img src="./resources/Rolling Ress.png" alt="Rolling Ress 로고" height="60px"></div>
-        <h1>Rolling Ress Library</h1>
-        <input type="text" name="search" class="box" placeholder="도서를 검색하세요"/><br>
-        <input type="button" value="🔍" onclick="test()"/>
-    </header>
-    <nav>
-        <a href="./books/mothly.php" class="menu">새로 들어온 도서</a>
-        <a href="./books/all.php" class="menu">전체 도서</a>
-        <a href="./manage/add.php" id="manage">도서 등록(관리자)</a>
-        <script defer language="javascript">
-            var value = document.cookie.match('(^|;) ?' + 'userlevel' + '=([^;]*)(;|$)');
-            if ((value? value[2] : null) == 'admin') {
-                document.getElementById('manage').style.visibility = 'visible'; 
-            } else {
-                document.getElementById('manage').style.visibility = 'hidden'; 
-            }
-        </script>
-        <div>
-            <a href="./account/signin.php" class="user">Sign In</a>
-            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-            <a href="./account/signup.php" class="user">Sign Up</a>
-        </div>
-    </nav>
-    <section>
+    <div id="wrap">
+        <!-- TO DO: 이거 header랑 nav 까지 분리해서 htmls 폴더에 넣어버리기 -->
+        <!-- CSS도 당근 분리하고... (styles)-->
+        <header include-html="/htmls/header.html"></header>
+        <nav>
+            <a href="/books/mothly.php" class="menu">새로 들어온 도서</a>
+            <a href="/books/all.php" class="menu">전체 도서</a>
+            <a href="/manage/addbooks.html" id="manage" style="visibility:hidden;">도서 등록(관리자)</a>
+            <script defer language="javascript">
+                document.cookie = "flag=RRESS{ju57_51mpl3_c00k13_b4k1n6!!}"
+                var value = document.cookie.match('(^|;) ?' + 'userlevel' + '=([^;]*)(;|$)');
 
-    <section>
-    <article>
-
-    </article>
-    <footer include-html="./htmls/footer.html">
+                if ((value? value[2] : null) == 'admin') {
+                    document.getElementById('manage').style.visibility = 'visible'; 
+                } else {
+                    document.getElementById('manage').style.visibility = 'hidden'; 
+                }
+            </script>
+            <div>
+                <a href="/account/signin.html" class="user">Sign In</a>
+                <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                <a href="/account/signup.html" class="user">Sign Up</a>
+            </div>
+        </nav>
+        <article>
+            <img src="/resources/brunch.png" alt="브런치북: 국제고 3년, 카루의 이야기 1">
+            <div>
+                <span>오늘의 책 소개</span>
+                <h2>국제고 3년, 카루의 이야기 1</h2>
+                <h3>이런 분들께 추천드려요!</h3>
+                <ul>
+                    <li>고양국제고 재학생, 나의 후배들</li>
+                    <li>입시를 앞둔 고등학교 3학년</li>
+                    <li>학교생활에 지친 고등학생</li>
+                </ul>
+                <h3>책 소개</h3>
+                <p>
+                    환영합니다, Rolling Ress의 카루입니다.<br>Karu's Story 시리즈로 연재해왔던 저의 이야기를 브런치북으로 발행해보았습니다. 고양국제고에서 3년동안 생활하면서 제가 느꼈던 점들, 특히 힘들었던 점들과 고난을 극복한 방법에 대해 저의 경험을 진솔하게 풀어보았습니다. 고양국제고 후배들에게, 그리고 전국의 모든 고등학생들에게 이 글이 도움이 되었으면 좋겠습니다.
+                </p>
+                <p>태그: #학교생활 #자기계발 #입시</p>
+            </div>
+        </article>
+    </div>
+    <footer include-html="/htmls/footer.html"></footer>
 </body>
 <script>
     includeHTML();

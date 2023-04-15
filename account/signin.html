@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <link href="account.css" rel="stylesheet">
+    <link href="/styles/footer.css" rel="stylesheet">
+    <title>Rolling Ress Library</title>
+    <script src="/scripts/includeHTML.js"></script>
+    <script>
+        function checkform() {
+            if (!document.user_login.signin_id.value) {
+                alert('아이디를 입력해주세요.');
+                document.user_login.signin_id.focus();
+                return;
+            }
+
+            else if (!document.user_login.signin_pwd.value) {
+                alert('비밀번호를 입력해주세요. ');
+                document.user_login.signin_pwd.focus();
+                return;
+            }
+
+            document.user_login.submit();
+        }        
+    </script>
+</head>
+<body>
+    <article>
+        <h1>SIGN IN</h1>
+        <form name="user_login" action="/db/login.php" method="post">
+            <input type="text" name="signin_id" class="box" placeholder="아이디"/>
+            <input type="password" name="signin_pwd" class="box" placeholder="비밀번호"/>
+            <hr>
+            <input type="button" value="로그인" onclick="checkform()"/>
+        </form>
+        <!--
+
+        CREATE TABLE `info` (
+        `id` varchar(15) NOT NULL,
+        `pwd` varchar(15) NOT NULL,
+        `name` varchar(20) NOT NULL,
+        `age` int DEFAULT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+        -->
+    </article>
+    <footer include-html="/htmls/footer.html"></footer>
+</body>
+<script>
+    includeHTML();
+</script>
+</html>

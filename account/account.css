@@ -1,12 +1,17 @@
+article {
+    overflow: auto;
+}
+
 h1 {
     color: #144AA9EE;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     text-align: center;
-    margin-top: 50px;
     margin-bottom: 40px;
+    font-size: 40px;
+    margin-top: 60px;
 }
 
-.user_input {
+form {
     width: 500px;
     height: 450px;
     margin: 0 auto;
@@ -22,7 +27,7 @@ h1 {
     align-items: center;
 }
 
-.user_input > input {
+form > input {
     margin: 20 auto;
     margin-left: 20px;
     margin-right: 20px;
@@ -34,7 +39,7 @@ h1 {
 
     font-size: 20px;
 }
-.user_input > hr {
+form > hr {
     width: 450px;
     border: 0px;
     border-top: 1px solid grey;

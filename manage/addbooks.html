@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <link href="/account/account.css" rel="stylesheet">
+    <link href="/styles/header.css" rel="stylesheet">
+    <link href="/styles/footer.css" rel="stylesheet">
+    <title>Rolling Ress Library</title>
+    <script src="/scripts/includeHTML.js"></script>
+    <script>
+        function checkform() {
+            $isbn = document.add_book.add_isbn.value;
+            if (!$isbn) {
+                alert('ISBN이 누락되었습니다.');
+            }
+
+            // 이거 노답 Regex로 해야 함.
+            /*
+            else if (!Number.is($isbn)) {
+                alert('ISBN의 형식이 잘못되었습니다.');
+                document.add_book.add_isbn.focus();
+                return;
+            }
+            */
+
+
+            else if (!document.add_book.add_title.value) {
+                alert('제목이 누락되었습니다.');
+                document.add_book.add_title.focus();
+                return;
+            }
+
+            else if (!document.add_book.add_author.value) {
+                alert('저자가 누락되었습니다. ');
+                document.add_book.add_author.focus();
+                return;
+            }
+
+            else if (!document.add_book.add_publisher.value) {
+                alert('출판사가 누락되었습니다.');
+                document.add_book.add_publisher.focus();
+                return;
+            }
+            document.add_book.submit();
+        }
+    </script>
+</head>
+<body>
+    <header include-html="/htmls/header.html"></header>
+    <article>
+        <h1>도서 추가</h1>
+        <form name="add_book" action="/db/addbook.php" method="post">
+            <input type="text" name="add_isbn" class="box" placeholder="ISBN"/>
+            <input type="text" name="add_title" class="box" placeholder="제목"/>
+            <input type="text" name="add_author" class="box" placeholder="저자"/>
+            <input type="text" name="add_publisher" class="box" placeholder="출판사"/>
+            <hr>
+            <input type="button" value="등록" onclick="checkform()"/>
+        </form>
+    </article>
+    <footer include-html="/htmls/footer.html"></footer>
+</body>
+<script>
+    includeHTML();
+</script>
+</html>

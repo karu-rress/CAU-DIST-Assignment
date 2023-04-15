@@ -1,0 +1,40 @@
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:center;
+    align-items: center;
+    align-content: space-between;
+    
+    
+    height: 140px;
+    width: 100%;
+    background-color: #55555522;
+}
+
+header > div {
+    margin-right: 15px;
+}
+
+header input[type="text"] {
+    font-size: 20px;
+    height: 40px;
+    width: 400px;
+}
+
+header input[type="button"] {
+    font-size: 20px;
+    height: 46px;
+    width: 46px;
+}
+
+#main-title {
+    color: #1D4582; 
+    margin-right: 15px;
+    font-size: 37px;
+    font-weight: bold;
+}
+
+a[href="/index.html"] {
+    text-decoration: none;
+}

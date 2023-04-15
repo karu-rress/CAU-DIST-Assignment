@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <link href="account.css" rel="stylesheet">
+    <link href="/styles/footer.css" rel="stylesheet">
+    <title>Rolling Ress Library</title>
+    <script src="/scripts/includeHTML.js"></script>
+    <script>
+        function checkform() {
+            if (!document.user_input.signup_id.value) {
+                alert('아이디를 입력해주세요.');
+                document.user_input.signup_id.focus();
+                return;
+            }
+
+            else if (!document.user_input.signup_pwd.value) {
+                alert('비밀번호를 입력해주세요. ');
+                document.user_input.signup_pwd.focus();
+                return;
+            }
+
+            else if (!document.user_input.signup_name.value) {
+                alert('이름이 입력되지 않았습니다. ');
+                document.user_input.signup_name.focus();
+                return;
+            }
+
+            else if (!document.user_input.signup_age.value) {
+                alert('나이가 입력되지 않았습니다. ');
+            }
+
+            else if (!Number.isInteger(document.user_input.signup_age.value)) {
+                alert('나이는 자연수로 입력해주세요.');
+                document.user_input.signup_age.focus();
+                return;
+            }
+
+            document.user_input.submit();
+        }
+    </script>
+</head>
+<body>
+    <article>
+        <h1>SIGN UP</h1>
+        <form name="user_input" action="/db/adduser.php" method="post">
+            <input type="text" name="signup_id" class="box" placeholder="아이디"/>
+            <input type="password" name="signup_pwd" class="box" placeholder="비밀번호"/>
+            <input type="text" name="signup_name" class="box" placeholder="이름"/>
+            <input type="text" name="signup_age" class="box" placeholder="나이"/>
+            <hr>
+            <input type="button" value="회원가입" onclick="checkform()"/>
+        </form>
+        <!--
+
+        CREATE TABLE `info` (
+        `id` varchar(15) NOT NULL,
+        `pwd` varchar(15) NOT NULL,
+        `name` varchar(20) NOT NULL,
+        `age` int DEFAULT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+        -->
+    </article>
+    <footer include-html="/htmls/footer.html"></footer>
+</body>
+<script>
+    includeHTML();
+</script>
+</html>

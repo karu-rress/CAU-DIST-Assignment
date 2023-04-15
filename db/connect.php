@@ -1,8 +1,8 @@
 <?
      $host_name = "localhost";
      $db_user_id = "root";
-     $db_pwd = "0000";
-     $db_name = "test";
+     $db_pwd = "root20234748";
+     $db_name = "library";
 
      $connect = mysqli_connect($host_name, $db_user_id, $db_pwd, $db_name);
      /* check connection */
