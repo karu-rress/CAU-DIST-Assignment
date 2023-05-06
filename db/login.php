@@ -8,6 +8,7 @@
 
   $result = mysqli_query($connect, $query);
   $num = mysqli_num_rows($result);
+  mysqli_close($connect); // 연결은 최대한 빨리 해제
 
   if (!$num) {
 ?>
@@ -18,7 +19,8 @@
 <?php
   }
 
-mysqli_close($connect);
+  // 비밀번호 검증
+
 ?>
 <script>
     document.cookie = "userlevel=<?php echo $id?>; path=/";
