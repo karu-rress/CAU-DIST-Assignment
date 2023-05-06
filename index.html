@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <title>Rolling Ress Library</title>
     <link href="/styles/index.css" rel="stylesheet">
     <link href="/styles/header.css" rel="stylesheet">
     <link href="/styles/nav.css" rel="stylesheet">
     <link href="/styles/footer.css" rel="stylesheet">
-    <title>Rolling Ress Library</title>
     <script src="/scripts/includeHTML.js"></script>
 </head>
 <body>
     <div id="wrap">
-        <!-- TO DO: 이거 header랑 nav 까지 분리해서 htmls 폴더에 넣어버리기 -->
-        <!-- CSS도 당근 분리하고... (styles)-->
         <header include-html="/htmls/header.html"></header>
         <nav>
             <a href="/books/mothly.php" class="menu">새로 들어온 도서</a>
             <a href="/books/all.php" class="menu">전체 도서</a>
             <a href="/manage/addbooks.html" id="manage" style="visibility:hidden;">도서 등록(관리자)</a>
             <script defer language="javascript">
-                document.cookie = "flag=RRESS{ju57_51mpl3_c00k13_b4k1n6!!}"
                 var value = document.cookie.match('(^|;) ?' + 'userlevel' + '=([^;]*)(;|$)');
-
                 if ((value? value[2] : null) == 'admin') {
                     document.getElementById('manage').style.visibility = 'visible'; 
                 } else {
@@ -37,15 +33,15 @@
         <article>
             <img src="/resources/brunch.png" alt="브런치북: 국제고 3년, 카루의 이야기 1">
             <div>
-                <span>오늘의 책 소개</span>
-                <h2>국제고 3년, 카루의 이야기 1</h2>
+                <span>선배가 들려주는</span>
+                <h2>생생한 GGHS 생활이 궁금하다면</h2>
                 <h3>이런 분들께 추천드려요!</h3>
                 <ul>
                     <li>고양국제고 재학생, 나의 후배들</li>
                     <li>입시를 앞둔 고등학교 3학년</li>
                     <li>학교생활에 지친 고등학생</li>
                 </ul>
-                <h3>책 소개</h3>
+                <h3>『국제고 3년, 카루의 이야기 (1)』</h3>
                 <p>
                     환영합니다, Rolling Ress의 카루입니다.<br>Karu's Story 시리즈로 연재해왔던 저의 이야기를 브런치북으로 발행해보았습니다. 고양국제고에서 3년동안 생활하면서 제가 느꼈던 점들, 특히 힘들었던 점들과 고난을 극복한 방법에 대해 저의 경험을 진솔하게 풀어보았습니다. 고양국제고 후배들에게, 그리고 전국의 모든 고등학생들에게 이 글이 도움이 되었으면 좋겠습니다.
                 </p>

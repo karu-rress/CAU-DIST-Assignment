@@ -1,9 +1,10 @@
-@charset "utf-8";
+@charset "UTF-8";
 
 html, body {
     padding: 0;
     margin: 0;
 }
+
 article {
     display: grid;
     grid-template-columns: 2fr 3fr;
@@ -11,7 +12,6 @@ article {
     justify-items: center;
     margin-top: 50px;
 }
-
 
 h2 {
     color: darkslateblue;
@@ -26,9 +26,3 @@ h3 {
 article > div {
     width: 500px;
 }
-
-article > p {
-
-}
-
-

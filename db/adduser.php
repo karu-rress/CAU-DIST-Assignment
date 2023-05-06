@@ -23,17 +23,13 @@
     $username=$_POST['signup_name'];
     $userage=$_POST['signup_age'];
 
-    
-
     $query="INSERT INTO userinfo(id, pwd, name, age) values('$userid','$userpwd','$username','$userage')";
 
     mysqli_query($connect, $query);
 
-    echo"
-    <script>
-    location.href='/index.html';
-    </script>
-    ";
 ?>
+    <script>
+        location.href = '/index.html';
+    </script>
 </body>
 </html>

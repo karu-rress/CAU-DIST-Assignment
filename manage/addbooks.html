@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="UTF-8"/>
+    <title>Rolling Ress Library</title>
     <link href="/account/account.css" rel="stylesheet">
     <link href="/styles/header.css" rel="stylesheet">
     <link href="/styles/footer.css" rel="stylesheet">
-    <title>Rolling Ress Library</title>
     <script src="/scripts/includeHTML.js"></script>
     <script>
         function checkform() {
             $isbn = document.add_book.add_isbn.value;
             if (!$isbn) {
                 alert('ISBN이 누락되었습니다.');
+                return;
             }
 
             // 이거 노답 Regex로 해야 함.
