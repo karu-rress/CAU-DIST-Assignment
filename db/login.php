@@ -1,52 +1,39 @@
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+    <script src = "/scripts/js/user.js"></script>
+</head>
+<body>
 <?php
-  include 'connect.php';
+    include 'connect.php';
 
-  # 입력값이 비었는지는 Client (signin.html) 단에서 구현
+    # 입력값이 비었는지는 Client (signin.html) 단에서 구현
+    $id = $_POST['signin_id'];
 
-  $id = $_POST['signin_id'];
-  $pwd = $_POST['signin_pwd'];
+    # SQL injection prevention method.
+    $stmt = $connect->prepare("SELECT * FROM userinfo WHERE id = ?");
+    $stmt->bind_param('s', $id);
+    $stmt->execute();
 
-  // SQL injection prevention method.
-  // sdkkskejdkdkdkdkdkkdkdkdkdkddfdfdfdsfhjdkjsdfklflklkdklflkjlfklkjdlkjd
-  // =sdlkjflkdflklklkl
-  $stmt = $connect->prepare("SELECT * FROM userinfo WHERE id = ?");
+    $result = $stmt->get_result();
+    $row = $result->fetch_row();
+    $stmt->close();
+    $num = $result->num_rows;
 
-  $stmt->bind_param('s', $id);
+    // Record가 존재하는가?
+    if (!$num) {
+        echo "<script>formError('존재하지 않는 ID입니다.\\n회원가입을 해주세요.',
+        '/account/signup.html');</script>";
+    }
 
-  $result = $stmt->excute();
-  $num = mysqli_num_rows($result);
+    $userpwd = hash("sha256", $_POST['signin_pwd']);
+    if (str_replace(' ', '', $row[1]) != $userpwd) { # password not matches?
+        echo "<script>formError('비밀번호가 일치하지 않습니다.',
+        '/account/signin.html');</script>";
+    }
 
-  if (!$num) { # ID not exists?
+    echo '<script>document.cookie = "userlevel='.$id.'; path=/";
+        location.href = "/index.html";</script>';
 ?>
-  <script>
-    $stmt->close()
-    alert('존재하지 않는 아이디입니다.\n회원가입을 해주세요.');
-    location.href='/account/signup.html';
-  </script>
-<?php
-  }
- 
- $userpwd=hash("sha256", $_POST['signup_pwd']);
-  $stmt = $connect->prepare("SELECT * FROM userinfo WHERE id = ? AND pwd = ?")
-  $stmt->bind_param('ss', $id, $userpwd);
-  $result = $stmt->excute();
-  $stmt->close()
-
-## password와 matches 구해지는지 비교하기
-
-  if (!$result) { # password not matches?
-    ?>
-      <script>
-        alert('존재하지 않는 아이디입니다.\n회원가입을 해주세요.');
-        location.href='/account/signup.html';
-      </script>
-    <?php
-      }
-
- 
-
-?>
-<script>
-    document.cookie = "userlevel=<?php echo $id?>; path=/";
-    location.href = '/index.html';
-</script>
+</body>
+</html>

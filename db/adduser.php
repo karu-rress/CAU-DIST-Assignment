@@ -1,39 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
+<head>
+    <script src="/scripts/js/user.js"></script>
+</head>
 <body>
 <?php
     include './connect.php';
 
-    $userid=$_POST["signup_id"];
+    # 입력값이 비었는지는 Client (signin.html) 단에서 구현
+    $id = $_POST["signup_id"];
 
+    # SQL injection prevention method.
     $stmt = $connect->prepare("SELECT * FROM userinfo WHERE id = ?");
+    $stmt->bind_param('s', $id);
+    $stmt->execute();
 
-    $stmt->bind_param('s', $userid);
-    $result = $stmt->excute();
-    $num = mysqli_num_rows($result);
+    $result = $stmt->get_result();
+    $num = $result->num_rows;
 
     if ($num != 0) {
-?>
-<script>
-    $stmt->close()
-    alert('이미 존재하는 아이디입니다.');
-    location.href='/account/signup.html';
-</script>
-<?php
+        $stmt->close();
+        echo "<script>formError('이미 존재하는 ID입니다.',
+            '/account/signup.html');</script>";
     }
 
-    $userpwd=hash("sha256", $_POST['signup_pwd']);
-    $username=$_POST['signup_name'];
-    $userage=$_POST['signup_age'];
+    $userpwd = hash("sha256", $_POST['signup_pwd']);
+    $username = $_POST['signup_name'];
+    $userage = $_POST['signup_age'];
 
-    $stmt = $connect->prepare("INSERT INTO userinfo(id, pwd, name, age) values(?, ?, ?, ?)");
-    $stmt->bind_param('sssd', $userid, $userpwd, $username, $userage);
-    $stmt->excute();
-    $stmt->close()
+    # id, pwd, name(varchar), age(uint)
+    $stmt = $connect->prepare("INSERT INTO userinfo(id, pwd, name, age) VALUES(?, ?, ?, ?)");
+    $stmt->bind_param('sssd', $id, $userpwd, $username, $userage);
+    $stmt->execute();
+    $stmt->close();
 
+    echo '<script>location.href = "/index.html";</script>';
 ?>
-    <script>
-        location.href = '/index.html';
-    </script>
 </body>
 </html>

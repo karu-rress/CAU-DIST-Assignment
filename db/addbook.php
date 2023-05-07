@@ -1,38 +1,49 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Rolling Ress Library</title>
-    </head>
-    <body>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
 <?php
     include './connect.php';
 
     $isbn = $_POST["add_isbn"];
 
-    $query = "SELECT * FROM bookinfo WHERE isbn = '$isbn'";
-    $result = mysqli_query($connect, $query);
-    $num = mysqli_num_rows($result);
+    $stmt = $connect->prepare("SELECT * FROM bookinfo WHERE isbn = ?");
+    $stmt->bind_param('d', $isbn);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $num = $result->num_rows;
 
     if ($num != 0) {
-?>
-<script>
-    alert('이미 존재하는 ISBN입니다.');
-    location.href = '/manage/addbooks.html';
-</script>
-<?php
+        $stmt->close();
+        echo "<script>formError('이미 존재하는 ISBN입니다.',
+            '/account/signup.html');</script>";
     }
 
     $title = $_POST['add_title'];
     $author = $_POST['add_author'];
     $publisher = $_POST['add_publisher'];
 
-    $query = "INSERT INTO bookinfo(isbn, title, author, publisher) VALUES('$isbn','$title','$author','$publisher')";
+    /*
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| isbn      | bigint      | NO   | PRI | NULL    |       |
+| title     | varchar(80) | NO   |     | NULL    |       |
+| author    | varchar(45) | NO   |     | NULL    |       |
+| publisher | varchar(45) | NO   |     | NULL    |       |
+| takenby   | varchar(45) | YES  |     | NULL    |       |
+| uploaded  | date        | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+    */
+    $stmt = $connect->prepare("INSERT INTO bookinfo(isbn, title, author, publisher, uploaded) VALUES(?, ?, ?, ?, NOW())");
+    $stmt->bind_param('dsss', $isbn, $title, $author, $publisher);
+    $stmt->execute();
+    $stmt->close();
 
-    mysqli_query($connect, $query);
-    ?>
-    <script>
-    location.href = '/index.html';
-    </script>
-    </body>
+    echo '<script>location.href = "/books/all.php";</script>';
+?>
+</body>
 </html>

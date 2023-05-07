@@ -5,38 +5,20 @@
     <title>Rolling Ress Library</title>
     <link href="/styles/account.css" rel="stylesheet">
     <link href="/styles/footer.css" rel="stylesheet">
-    <script src="/scripts/includeHTML.js"></script>
-    <script>
-        function checkform() {
-            if (!document.user_login.signin_id.value) {
-                alert('아이디를 입력해주세요.');
-                document.user_login.signin_id.focus();
-                return;
-            }
-
-            else if (!document.user_login.signin_pwd.value) {
-                alert('비밀번호를 입력해주세요. ');
-                document.user_login.signin_pwd.focus();
-                return;
-            }
-
-            document.user_login.submit();
-        }        
-    </script>
+    <script src="/scripts/js/includeHTML.js"></script>
+    <script src="/scripts/js/checkform.js"></script>
 </head>
 <body>
     <article>
         <h1>SIGN IN</h1>
-        <form name="user_login" action="/db/login.php" method="post">
-            <input type="text" name="signin_id" class="box" placeholder="아이디"/>
-            <input type="password" name="signin_pwd" class="box" placeholder="비밀번호"/>
+        <form id="signin_form" name="user_login" action="/db/login.php" method="post">
+            <input required type="text" id="signin_id" name="signin_id" class="box" placeholder="아이디"/>
+            <input required type="password" id="signin_pwd" name="signin_pwd" class="box" placeholder="비밀번호"/>
             <hr>
-            <input type="button" value="로그인" onclick="checkform()"/>
+            <input type="button" value="로그인" onclick="checkSigninForm()"/>
         </form>
     </article>
     <footer include-html="/htmls/footer.html"></footer>
+    <script>includeHTML();</script>
 </body>
-<script>
-    includeHTML();
-</script>
 </html>

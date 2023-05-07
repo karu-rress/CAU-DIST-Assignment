@@ -5,57 +5,23 @@
     <title>Rolling Ress Library</title>
     <link href="/styles/account.css" rel="stylesheet">
     <link href="/styles/footer.css" rel="stylesheet">
-    <script src="/scripts/includeHTML.js"></script>
-    <script>
-        function checkform() {
-            if (!document.user_input.signup_id.value) {
-                alert('아이디를 입력해주세요.');
-                document.user_input.signup_id.focus();
-                return;
-            }
-
-            else if (!document.user_input.signup_pwd.value) {
-                alert('비밀번호를 입력해주세요. ');
-                document.user_input.signup_pwd.focus();
-                return;
-            }
-
-            else if (!document.user_input.signup_name.value) {
-                alert('이름이 입력되지 않았습니다. ');
-                document.user_input.signup_name.focus();
-                return;
-            }
-
-            else if (!document.user_input.signup_age.value) {
-                alert('나이가 입력되지 않았습니다. ');
-            }
-
-            else if (!Number.isInteger(document.user_input.signup_age.value)) {
-                alert('나이는 자연수로 입력해주세요.');
-                document.user_input.signup_age.focus();
-                return;
-            }
-
-            document.user_input.submit();
-        }
-    </script>
+    <script src="/scripts/js/includeHTML.js"></script>
+    <script src="/scripts/js/checkform.js"></script>
 </head>
 <body>
     <article>
         <h1>SIGN UP</h1>
-        <form name="user_input" action="/db/adduser.php" method="post">
-            <input type="text" name="signup_id" class="box" placeholder="아이디"/>
-            <input type="password" name="signup_pwd" class="box" placeholder="비밀번호"/>
-            <input type="text" name="signup_name" class="box" placeholder="이름"/>
-            <input type="text" name="signup_age" class="box" placeholder="나이"/>
+        <form id="signup_form" name="user_input" action="/db/adduser.php" method="post">
+            <input required type="text" id="signup_id" name="signup_id" class="box" placeholder="아이디"/>
+            <input required type="password" id="signup_pwd" name="signup_pwd" class="box" placeholder="비밀번호"/>
+            <input required type="text" id="signup_name" name="signup_name" class="box" placeholder="이름"/>
+            <input required type="text" id="signup_age" name="signup_age" class="box" placeholder="나이"/>
             <hr>
-            <input type="button" value="회원가입" onclick="checkform()"/>
+            <input type="button" value="회원가입" onclick="checkSignupForm()"/>
         </form>
     </article>
     <footer include-html="/htmls/footer.html"></footer>
+    <script>includeHTML();</script>
 </body>
-<script>
-    includeHTML();
-</script>
 </html>
 

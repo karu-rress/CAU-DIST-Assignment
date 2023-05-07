@@ -5,12 +5,25 @@ html, body {
     margin: 0;
 }
 
+button {
+    font-size: 20px;
+    height: 40px;
+    width: 90px;
+}
+
 article {
     display: grid;
     grid-template-columns: 2fr 3fr;
     align-items: stretch;
     justify-items: center;
     margin-top: 50px;
+}
+
+h1 {
+    font-size: 30px;
+    text-align: center;
+    color: #1D4582;
+    margin-top: 20px;
 }
 
 h2 {

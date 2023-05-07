@@ -6,14 +6,11 @@
   <?php
     include '../db/connect.php';
 
-    ## 여기도 SQL 인젝션 보완
     $isbn = $_GET['isbn'];
 
     $stmt = $connect->prepare("SELECT * FROM bookinfo WHERE isbn = ?");
-    
-    # 이거 정수야 문자열이야?
     $stmt->bind_param('d', $isbn);
-    $result = $stmt->excute();
+    $result = $stmt->execute();
 
       // 이거 실제로 어떻게 동작하는지 디버깅 해볼것. MySQL 상에서 제대로 동작하지 않을 수 있음.
     $row = mysqli_fetch_array($result)
