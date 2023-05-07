@@ -1,25 +1,49 @@
 <?php
   include 'connect.php';
 
+  # 입력값이 비었는지는 Client (signin.html) 단에서 구현
+
   $id = $_POST['signin_id'];
   $pwd = $_POST['signin_pwd'];
 
-  $query="SELECT * FROM userinfo WHERE id = '$id'";
+  // SQL injection prevention method.
+  // sdkkskejdkdkdkdkdkkdkdkdkdkddfdfdfdsfhjdkjsdfklflklkdklflkjlfklkjdlkjd
+  // =sdlkjflkdflklklkl
+  $stmt = $connect->prepare("SELECT * FROM userinfo WHERE id = ?");
 
-  $result = mysqli_query($connect, $query);
+  $stmt->bind_param('s', $id);
+
+  $result = $stmt->excute();
   $num = mysqli_num_rows($result);
-  mysqli_close($connect); // 연결은 최대한 빨리 해제
 
-  if (!$num) {
+  if (!$num) { # ID not exists?
 ?>
   <script>
+    $stmt->close()
     alert('존재하지 않는 아이디입니다.\n회원가입을 해주세요.');
     location.href='/account/signup.html';
   </script>
 <?php
   }
+ 
+ $userpwd=hash("sha256", $_POST['signup_pwd']);
+  $stmt = $connect->prepare("SELECT * FROM userinfo WHERE id = ? AND pwd = ?")
+  $stmt->bind_param('ss', $id, $userpwd);
+  $result = $stmt->excute();
+  $stmt->close()
 
-  // 비밀번호 검증
+## password와 matches 구해지는지 비교하기
+
+  if (!$result) { # password not matches?
+    ?>
+      <script>
+        alert('존재하지 않는 아이디입니다.\n회원가입을 해주세요.');
+        location.href='/account/signup.html';
+      </script>
+    <?php
+      }
+
+ 
 
 ?>
 <script>

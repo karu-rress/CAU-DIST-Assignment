@@ -19,16 +19,29 @@
             <a href="/manage/addbooks.html" id="manage" style="visibility:hidden;">도서 등록(관리자)</a>
             <script defer language="javascript">
                 var value = document.cookie.match('(^|;) ?' + 'userlevel' + '=([^;]*)(;|$)');
-                if ((value? value[2] : null) == 'admin') {
-                    document.getElementById('manage').style.visibility = 'visible'; 
-                } else {
-                    document.getElementById('manage').style.visibility = 'hidden'; 
-                }
+                document.getElementById('manage').style.visibility 
+                    = (value ? value[2] : null) === 'admin' ? 'visible' : 'hidden';  
             </script>
             <div>
                 <a href="/account/signin.html" class="user">Sign In</a>
-                <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                <span class="user">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                 <a href="/account/signup.html" class="user">Sign Up</a>
+                <script defer lang="javascript">
+                <a href="/account/signout.html" claszkaka       s="user_loggedin" style='visibility:hidden;'>Sign out</a>
+                    var value = document.cookie.match('(^|;) ?' + 'userlevel' + '=([^;]*)(;|$)');
+                    if ((value ? value[2] : null) != null || undefined) // userlevel이 null 혹은 undefined가 아니라면
+                    {
+                        document.getElementsByClassName('user').style.visibility = 'visible';
+                        document.getElementsByClassName('user_loggedin').style.visibility = 'hidden';
+                    }
+                    else
+                    {
+                        document.getElementsByClassName('user').style.visibility = 'hidden';
+                        document.getElementsByClassName('user_loggedin').style.visibility = 'visible';
+                    }
+
+
+                </script>
             </div>
         </nav>
         <article> <!-- grid container -->
@@ -47,7 +60,7 @@
                 <p>
                     환영합니다, Rolling Ress의 카루입니다.<br>Karu's Story 시리즈로 연재해왔던 저의 이야기를 브런치북으로 발행해보았습니다. 고양국제고에서 3년동안 생활하면서 제가 느꼈던 점들, 특히 힘들었던 점들과 고난을 극복한 방법에 대해 저의 경험을 진솔하게 풀어보았습니다. 고양국제고 후배들에게, 그리고 전국의 모든 고등학생들에게 이 글이 도움이 되었으면 좋겠습니다.
                 </p>
-                <p class="tags">태그: #학교생활 #자기계발 #입시</p>
+                <p class="tags">#학교생활 #자기계발 #입시</p>
             </div>
             
             <img src="/resources/report.png" width="400" alt="대화형 인공지능 논문">
@@ -66,7 +79,7 @@
                 <p>
                     본 연구에서는 대화형 인공지능의 언어적 표현 방식이 사용자의 친밀감과 인공지능에 대한 신뢰성에 미치는 영향을 알아보기 위해 고등학생 18명을 대상으로 실험을 진행하였다. 언어적 표현 방식은 반말 사용 여부, 답변의 길이, 자기노출 정도로 차이를 두었다.
                 </p>
-                <p class="tags">태그: #인공지능 #양적연구 #실험연구</p>
+                <p class="tags">#인공지능 #양적연구 #실험연구</p>
             </div>
         </article>
     </div>

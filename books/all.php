@@ -45,6 +45,8 @@
 
     include '../db/connect.php';
 
+## 객체지향으로 바꾸기
+
     $query = "SELECT * FROM bookinfo";
     $result = mysqli_query($connect, $query);
 

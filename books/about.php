@@ -6,41 +6,47 @@
   <?php
     include '../db/connect.php';
 
+    ## 여기도 SQL 인젝션 보완
     $isbn = $_GET['isbn'];
-    $query = "SELECT * FROM bookinfo WHERE isbn = '$isbn'";
+
+    $stmt = $connect->prepare("SELECT * FROM bookinfo WHERE isbn = ?");
     
-    $result = mysqli_query($connect, $query);
+    # 이거 정수야 문자열이야?
+    $stmt->bind_param('d', $isbn);
+    $result = $stmt->excute();
+
+      // 이거 실제로 어떻게 동작하는지 디버깅 해볼것. MySQL 상에서 제대로 동작하지 않을 수 있음.
     $row = mysqli_fetch_array($result)
 ?>
 <script>
   function deldata() {
-    location.href = '../db/delete.php?id=<? echo $isbn ?>';
+    location.href = '../db/delete.php?id=<?php echo $isbn ?>';
   }
 </script>
   </head>
     <body>
-    <h1> <? echo $row['title']; ?> </h1>
+    <h1> <?php echo $row['title']; ?> </h1>
     <form name="frm_content" method="post" action="../db/update.php?isbn=<? echo $isbn; ?>">
       <table width= "300" cellspacing="0" cellpadding="5">
       <tr>
         <td>ISBN</td>
-        <td><input type="text" name="isbn" value="<? echo $row['isbn']; ?>"></td>
+        <td><input type="text" name="isbn" value="<?php echo $row['isbn']; ?>"></td>
       </tr>
       <tr>
         <td>제목</td>
-        <td><input type="text" name="title" value="<? echo $row['title']; ?>"></td>
+        <td><input type="text" name="title" value="<?php echo $row['title']; ?>"></td>
       </tr>
       <tr>
         <td>저자</td>
-        <td><input type="text" name="author" value="<? echo $row['author']; ?>"></td>
+        <td><input type="text" name="author" value="<?php echo $row['author']; ?>"></td>
       </tr>
       <tr>
         <td>출판사</td>
-        <td><input type="text" name="publisher" value="<? echo $row['publisher']; ?>"></td>
+        <td><input type="text" name="publisher" value="<?php echo $row['publisher']; ?>"></td>
       </tr>
       <tr>
         <td>대출상태</td>
-        <td><input type="text" name="takenby" value="<? echo $row['takenby']; ?>"></td>
+        <td><input type="text" name="takenby" value="<?php echo $row['takenby']; ?>"></td>
       </tr>
       <tr>
         <td colspan="2">
