@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Rolling Ress Library</title>
-    <link href="/styles/basic.css" rel="stylesheet">
-    <link href="/styles/index.css" rel="stylesheet">
-    <link href="/styles/header.css" rel="stylesheet">
-    <link href="/styles/nav.css" rel="stylesheet">
-    <link href="/styles/footer.css" rel="stylesheet">
-    <script src="/scripts/js/user.js"></script>
+    <link rel="stylesheet" href="/styles/pages/index.css">
+    <link rel="stylesheet" href="/styles/part/header.css">
+    <link rel="stylesheet" href="/styles/part/nav.css">
+    <link rel="stylesheet" href="/styles/part/footer.css">
+    <link rel="stylesheet" href="/styles/attribute.css">
     <script src="/scripts/js/includeHTML.js"></script>
-    <script src="/scripts/js/reload.js"></script>
-    <script src="/scripts/js/search.js"></script>
+    <script src="/scripts/js/user.js"></script>
+    <script defer src="/scripts/js/base.js"></script>
 </head>
 <body>
     <div id="wrap">
-        <!-- 로그인 되면 Sign Out 버튼으로 바꿔야 하는데... -->
         <header include-html="/htmls/header.html"></header>
         <nav>
             <a href="/books/mothly.php" class="menu">새로 들어온 도서</a>
@@ -80,11 +78,6 @@
         </article>
     </div>
     <footer include-html="/htmls/footer.html"></footer>
-    <script defer>
-        showIfById('admin', 'manage');
-        showIfByClass('*', 'user');
-        showIfByClass('*', 'user_loggedin');
-        includeHTML();
-    </script>
+    <script>includeHTML()</script>
 </body>
 </html>

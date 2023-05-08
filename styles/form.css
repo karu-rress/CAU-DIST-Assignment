@@ -15,7 +15,7 @@ h1 {
 
 form {
     width: 500px;
-    height: 450px;
+    height: 500px;
     margin: 0 auto;
 
     border-width: 3px;
@@ -41,6 +41,22 @@ form > input {
 
     font-size: 20px;
 }
+
+
+/* book edit */
+form > div > input {
+    margin: 20 auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 40px;
+    width: 175px;
+
+    border: none;
+    border-radius: 13px;
+
+    font-size: 20px;
+}
+
 form > hr {
     width: 450px;
     border: 0px;
@@ -52,7 +68,8 @@ form > input[type="text"], form > input[type="password"] {
     padding-left: 15px;
     background-color: #a5bcd655;
 }
-#actionbutton {
+
+.actionbutton {
     color: white;
     height: 50px;
     background-color: #285BA9CC;

@@ -8,6 +8,7 @@
     <link href="/styles/header.css" rel="stylesheet">
     <link href="/styles/nav.css" rel="stylesheet">
     <link href="/styles/footer.css" rel="stylesheet">
+    <script defer src="/scripts/js/books.js"></script>
     <script src="/scripts/js/user.js"></script>
     <script src="/scripts/js/checkform.js"></script>
     <script src="/scripts/js/includeHTML.js"></script>
@@ -24,11 +25,6 @@
     $row = $result->fetch_array();
     $stmt->close();
 ?>
-<script>
-    function deldata() {
-        location.href = '../db/delete.php?id=<? echo $isbn?>';
-    }
-</script>
 </head>
 <body>
     <header include-html="/htmls/header.html"></header>
@@ -44,35 +40,14 @@
         </div>
     </nav>
     <article>
-    <h1> <? echo $row['title'] ?> </h1>
+    <h1>책 정보 변경</h1>
     <form name="frm_content" method="post" action="../db/update.php?isbn=<? echo $isbn ?>">
-        <table width= "300" cellspacing="0" cellpadding="5">
-        <tr>
-            <td>ISBN</td>
-            <td><input type="text" name="isbn" class="box" value="<? echo $row['isbn'] ?>"></td>
-        </tr>
-        <tr>
-            <td>제목</td>
-            <td><input type="text" name="title" class="box" value="<? echo $row['title'] ?>"></td>
-        </tr>
-        <tr>
-            <td>저자</td>
-            <td><input type="text" name="author" class="box" value="<? echo $row['author'] ?>"></td>
-        </tr>
-        <tr>
-            <td>출판사</td>
-            <td><input type="text" name="publisher" class="box" value="<? echo $row['publisher'] ?>"></td>
-        </tr>
-        <tr>
-            <td>대출상태</td>
-            <td><input type="text" name="takenby" class="box" value="<? echo $row['takenby'] ?>"></td>
-        </tr>
-        <tr>
-        <td colspan="2">
-            <input type="submit" value="수정">
-            <input type="button" value="삭제" onclick="deldata()">
-        </td>
-        </tr>
+        <input type="text" name="isbn" class="box" placeholder="ISBN" value="<? echo $row['isbn'] ?>">
+        <input type="text" name="title" class="box" placeholder="제목" value="<? echo $row['title'] ?>">
+        <input type="text" name="author" class="box" placeholder="저자" value="<? echo $row['author'] ?>">
+        <input type="text" name="publisher" class="box" placeholder="출판사" value="<? echo $row['publisher'] ?>">
+        <input type="text" name="takenby" class="box" placeholder="대출자 (미 입력시 대출 가능 상태)" value="<? echo $row['takenby'] ?>">
+        <div><input type="submit" class="actionbutton" value="수정"><input type="button" class="actionbutton" value="삭제"></div>
     </form>
     </article>
     <footer include-html="/htmls/footer.html"></footer>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "ko">
 <head>
-    <script src = "/scripts/js/user.js"></script>
+    <script defer src = "/scripts/js/user.js"></script>
 </head>
 <body>
 <?php

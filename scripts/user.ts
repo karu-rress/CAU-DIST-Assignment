@@ -1,10 +1,3 @@
-// If logout button clicked
-document.querySelector("button.user_loggedin")?.addEventListener('click', function() {
-    // expires cookie to be deleted
-    document.cookie = "userlevel=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT";
-    location.href = '/index.html';
-});
-
 function getUser(): string | null {
     const userCookie = 
         document.cookie.match('(^|;) ?' + 'userlevel' + '=([^;]*)(;|$)');
@@ -26,7 +19,7 @@ function showIfById(userLevel: string, id: string) {
 function showIfByClass(userLevel: string, cls: string) {
     const elems = document.getElementsByClassName(cls);
     console.log(elems.length);
-    if (elems.length > 0 && (userLevel === '*' || getUser() === userLevel)) {
+    if (elems.length > 0 && (userLevel === '*' && getUser() != null || getUser() === userLevel)) {
         console.log(elems);
         for (const elem of elems) {
             elem.classList.toggle('hidden');

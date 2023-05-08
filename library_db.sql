@@ -39,7 +39,7 @@ CREATE TABLE `bookinfo` (
 
 LOCK TABLES `bookinfo` WRITE;
 /*!40000 ALTER TABLE `bookinfo` DISABLE KEYS */;
-INSERT INTO `bookinfo` VALUES (9791158393724,'시작하세요! C# 10 프로그래밍','정성태','위키북스',NULL,'2023-05-07'),(9791160507676,'모던 C++ 디자인 패턴','드미트리 네스터룩','길벗',NULL,'2023-05-08'),(9791161753119,'C++17 STL 프로그래밍','야체크 갈로비치','에이콘출판사',NULL,'2023-05-08'),(9791162243664,'혼자 공부하는 머신러닝+딥러닝','박해선','한빛미디어',NULL,'2023-05-07');
+INSERT INTO `bookinfo` VALUES (22884165,'초연결시대 기술융합을 위한 사물 인터넷 기술의 특허동향 분석','노승민','한국정보통신학회논문지',NULL,'2023-05-08'),(9791158393724,'시작하세요! C# 10 프로그래밍','정성태','위키북스',NULL,'2023-05-07'),(9791160507676,'모던 C++ 디자인 패턴','드미트리 네스터룩','길벗',NULL,'2023-05-08'),(9791161753119,'C++17 STL 프로그래밍','야체크 갈로비치','에이콘출판사',NULL,'2023-05-08'),(9791162243664,'혼자 공부하는 머신러닝+딥러닝','박해선','한빛미디어',NULL,'2023-05-07');
 /*!40000 ALTER TABLE `bookinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,4 +78,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-08 21:02:02
+-- Dump completed on 2023-05-08 22:05:38

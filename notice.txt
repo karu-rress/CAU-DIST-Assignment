@@ -9,7 +9,7 @@
 
 [조건/요구사항]
 1. [HTML, CSS] 입력 폼은 다음 중에 최소 4개를 사용해야 함. (text와 password는 2개로 인정하지 않고, 동일 form 객체로 인정함)
-- text/password box
+- text/password box (O)
 - textarea
 - checkbox
 - radio button
