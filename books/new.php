@@ -1,7 +1,9 @@
 <?php
     include '../db/connect.php';
 
-    $stmt = $connect->prepare("SELECT * FROM bookinfo");
+    $query = "SELECT * FROM bookinfo
+        WHERE DATEDIFF(uploaded, NOW()) <= 20";
+    $stmt = $connect->prepare($query);
     $stmt->execute();    
     $result = $stmt->get_result();
     $stmt->close();
@@ -12,7 +14,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>전체 도서 | Rolling Ress Library</title>
+    <title>신간 도서 | Rolling Ress Library</title>
     <link rel="stylesheet" href="/styles/pages/listall.css">
     <link rel="stylesheet" href="/styles/form.css">
     <link rel="stylesheet" href="/styles/attribute.css">
@@ -26,7 +28,7 @@
         <header include-html="/htmls/header.html"></header>
         <nav include-html="/htmls/nav.html"></nav>
         <article>
-            <h1>전체 도서 목록</h1>
+            <h1>새로 들어온 도서</h1>
             <table cellspacing="0" cellpadding="5">
                 <tr>
                     <td>제목</td>
@@ -53,7 +55,7 @@
                         <td><? echo $row['takenby']?></td>
                         <? endif ?>
                     </tr>
-            <? endwhile ?>
+            <?php endwhile ?>
             </table>
         </article>
     </div>

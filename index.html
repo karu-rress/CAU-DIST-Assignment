@@ -8,24 +8,12 @@
     <link rel="stylesheet" href="/styles/part/nav.css">
     <link rel="stylesheet" href="/styles/part/footer.css">
     <link rel="stylesheet" href="/styles/attribute.css">
-    <script src="/scripts/js/includeHTML.js"></script>
-    <script src="/scripts/js/user.js"></script>
-    <script defer src="/scripts/js/base.js"></script>
+    <script defer type="module" src="/scripts/js/base.js"></script>
 </head>
 <body>
     <div id="wrap">
         <header include-html="/htmls/header.html"></header>
-        <nav>
-            <a href="/books/mothly.php" class="menu">새로 들어온 도서</a>
-            <a href="/books/all.php" class="menu">전체 도서</a>
-            <a href="/manage/addbooks.html" id="manage" class="hidden">도서 등록(관리자)</a>
-            <div>
-                <a href="/account/signin.html" class="user">Sign In</a>
-                <span class="user">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                <a href="/account/signup.html" class="user">Sign Up</a>
-                <button class="user_loggedin hidden">Sign out</button>
-            </div>
-        </nav>
+        <nav include-html="/htmls/nav.html"></nav>
         <h1>Rolling Ress Library 추천 자료</h1>
         <article> <!-- grid container -->
             <img src="/resources/brunch.png" alt="브런치북: 국제고 3년, 카루의 이야기 1">
@@ -78,6 +66,5 @@
         </article>
     </div>
     <footer include-html="/htmls/footer.html"></footer>
-    <script>includeHTML()</script>
 </body>
 </html>

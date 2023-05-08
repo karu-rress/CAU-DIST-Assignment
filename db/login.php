@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html lang = "ko">
-<head>
-    <script defer src = "/scripts/js/user.js"></script>
-</head>
+<html lang="ko">
 <body>
 <?php
     include 'connect.php';
@@ -22,14 +19,15 @@
 
     // Record가 존재하는가?
     if (!$num) {
-        echo "<script>formError('존재하지 않는 ID입니다.\\n회원가입을 해주세요.',
-        '/account/signup.html');</script>";
+        echo "<script>
+        alert('존재하지 않는 ID입니다.\\n회원가입을 해주세요.');
+        location.href = '/account/signup.html';</script>";
     }
 
     $userpwd = hash("sha256", $_POST['signin_pwd']);
     if (str_replace(' ', '', $row[1]) != $userpwd) { # password not matches?
-        echo "<script>formError('비밀번호가 일치하지 않습니다.',
-        '/account/signin.html');</script>";
+        echo "<script>alert('비밀번호가 일치하지 않습니다.');
+        location.href = '/account/signin.html';</script>";
     }
 
     echo '<script>document.cookie = "userlevel='.$id.'; path=/";

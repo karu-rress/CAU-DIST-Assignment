@@ -1,4 +1,4 @@
-function checkSigninForm() {
+export function checkSigninForm() {
     const form = document.getElementById("signin_form") as HTMLFormElement;
     const idInput = document.getElementById("signin_id") as HTMLInputElement;
     const pwdInput = document.getElementById("signin_pwd") as HTMLInputElement;
@@ -16,7 +16,7 @@ function checkSigninForm() {
     form.submit();
 }
 
-function checkSignupForm() {
+export function checkSignupForm() {
     // querySelector('#id');
     const form = document.getElementById("signup_form") as HTMLFormElement;
     const idInput = document.getElementById("signup_id") as HTMLInputElement;
@@ -52,7 +52,7 @@ function checkSignupForm() {
     form.submit();
 }
 
-function checkBookForm() {
+export function checkBookForm() {
     const form = document.getElementById("book_form") as HTMLFormElement;
     const isbnInput = document.getElementById("add_isbn") as HTMLInputElement;
     const titleInput = document.getElementById("add_title") as HTMLInputElement;

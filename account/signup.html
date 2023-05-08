@@ -2,11 +2,10 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8"/>
-    <title>Rolling Ress Library</title>
-    <link href="/styles/account.css" rel="stylesheet">
-    <link href="/styles/footer.css" rel="stylesheet">
-    <script src="/scripts/js/includeHTML.js"></script>
-    <script src="/scripts/js/checkform.js"></script>
+    <title>SIGN UP | Rolling Ress Library</title>
+    <link rel="stylesheet" href="/styles/form.css">
+    <link rel="stylesheet" href="/styles/part/footer.css">
+    <script defer type="module" src="/scripts/js/base.js"></script>
 </head>
 <body>
     <article>
@@ -17,11 +16,10 @@
             <input required type="text" id="signup_name" name="signup_name" class="box" placeholder="이름"/>
             <input required type="text" id="signup_age" name="signup_age" class="box" placeholder="나이"/>
             <hr>
-            <input type="button" class="actionbutton" value="회원가입" onclick="checkSignupForm()"/>
+            <input type="button" class="actionbutton" value="회원가입"/>
         </form>
     </article>
     <footer include-html="/htmls/footer.html"></footer>
-    <script>includeHTML();</script>
 </body>
 </html>
 

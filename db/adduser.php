@@ -20,8 +20,8 @@
 
     if ($num != 0) {
         $stmt->close();
-        echo "<script>formError('이미 존재하는 ID입니다.',
-            '/account/signup.html');</script>";
+        echo "<script>alert('이미 존재하는 ID입니다.');
+            location.href = '/account/signup.html';</script>";
     }
 
     $userpwd = hash("sha256", $_POST['signup_pwd']);
@@ -34,7 +34,8 @@
     $stmt->execute();
     $stmt->close();
 
-    echo '<script>location.href = "/index.html";</script>';
+    echo "<script>alert('회원가입이 완료되었습니다. \n로그인을 해 주세요.');</script>";
+    echo '<script>location.href = "/account/signin.html";</script>';
 ?>
 </body>
 </html>
