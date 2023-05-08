@@ -1,3 +1,10 @@
+// If logout button clicked
+document.querySelector("button.user_loggedin")?.addEventListener('click', function() {
+    // expires cookie to be deleted
+    document.cookie = "userlevel=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT";
+    location.href = '/index.html';
+});
+
 function getUser(): string | null {
     const userCookie = 
         document.cookie.match('(^|;) ?' + 'userlevel' + '=([^;]*)(;|$)');
@@ -16,20 +23,15 @@ function showIfById(userLevel: string, id: string) {
  * @param userLevel all user if '*' was input
  * @param cls class name
  */
-function showIfByClass(userLevel: string, cls: string, invert?: any) {
+function showIfByClass(userLevel: string, cls: string) {
     const elems = document.getElementsByClassName(cls);
-
+    console.log(elems.length);
     if (elems.length > 0 && (userLevel === '*' || getUser() === userLevel)) {
+        console.log(elems);
         for (const elem of elems) {
-            (elem as HTMLElement).classList.toggle('hidden');
+            elem.classList.toggle('hidden');
         }
     }
-}
-
-function logout() {
-    // expires cookie to be deleted
-    document.cookie = "userlevel=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT";
-    location.href = '/index.html';
 }
 
 function formError(message: string, location: string) {

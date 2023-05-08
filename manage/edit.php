@@ -1,2 +1,8 @@
-<!-- modify & remove -->
+<!-- MODIFY & REMOVE -->
 <!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+</body>
+</html>
