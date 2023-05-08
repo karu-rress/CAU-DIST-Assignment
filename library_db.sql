@@ -39,7 +39,7 @@ CREATE TABLE `bookinfo` (
 
 LOCK TABLES `bookinfo` WRITE;
 /*!40000 ALTER TABLE `bookinfo` DISABLE KEYS */;
-INSERT INTO `bookinfo` VALUES (22884165,'초연결시대 기술융합을 위한 사물 인터넷 기술의 특허동향 분석','노승민','한국정보통신학회논문지',NULL,'2023-05-08'),(9791158393724,'시작하세요! C# 10 프로그래밍','정성태','위키북스',NULL,'2023-05-07'),(9791160507676,'모던 C++ 디자인 패턴','드미트리 네스터룩','길벗',NULL,'2023-05-08'),(9791161753119,'C++17 STL 프로그래밍','야체크 갈로비치','에이콘출판사',NULL,'2023-05-08'),(9791162243664,'혼자 공부하는 머신러닝+딥러닝','박해선','한빛미디어',NULL,'2023-05-07');
+INSERT INTO `bookinfo` VALUES (22884165,'초연결시대 기술융합을 위한 사물 인터넷 기술의 특허동향 분석','노승민','한국정보통신학회논문지',NULL,'2023-05-08'),(9788961335324,'개념원리 미적분 (2023)','이홍섭','개념원리',NULL,'2023-05-09'),(9791130333571,'인공지능과 법','한국인공지능법학회','(주)박영사',NULL,'2023-05-09'),(9791157031665,'한 권으로 끝내는 스페인어 능력시험 DELE B2~C1','정기훈','동양북스',NULL,'2023-05-09'),(9791158393724,'시작하세요! C# 10 프로그래밍','정성태','위키북스',NULL,'2023-05-07'),(9791160507676,'모던 C++ 디자인 패턴','드미트리 네스터룩','길벗',NULL,'2023-05-08'),(9791161753119,'C++17 STL 프로그래밍','야체크 갈로비치','에이콘출판사',NULL,'2023-05-08'),(9791162243664,'혼자 공부하는 머신러닝+딥러닝','박해선','한빛미디어',NULL,'2023-05-07'),(9791163034223,'Do it! 모던 자바스크립트 프로그래밍의 정석','고경희','이지스퍼블리싱',NULL,'2023-05-09'),(9791163034254,'Do it! 깡샘의 안드로이드 앱 프로그래밍 with 코틀린','강성윤','이지스퍼블리싱',NULL,'2023-05-09'),(9791165921453,'어떤 개발자가 살아남는가','이경종','비제이퍼블릭',NULL,'2023-05-09'),(9791196395704,'친절한 SQL 튜닝','조시형','디비안',NULL,'2023-05-09');
 /*!40000 ALTER TABLE `bookinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,7 @@ CREATE TABLE `userinfo` (
 
 LOCK TABLES `userinfo` WRITE;
 /*!40000 ALTER TABLE `userinfo` DISABLE KEYS */;
-INSERT INTO `userinfo` VALUES ('admin','f7bbd8d85bfdbc01370ee7d0b5b4f69e5949878c0b9243c9dc736a1f18b648aa','관리자',20),('user1','0a041b9462caa4a31bac3567e0b6e6fd9100787db2ab433d96f6d178cabfce90','유저1',21);
+INSERT INTO `userinfo` VALUES ('admin','f7bbd8d85bfdbc01370ee7d0b5b4f69e5949878c0b9243c9dc736a1f18b648aa','관리자',20),('karu','ae49b654a681e24f5444c7fda819e59656102165bd2817e885c84cbadf54d80f','나선우',20),('user1','0a041b9462caa4a31bac3567e0b6e6fd9100787db2ab433d96f6d178cabfce90','유저1',21);
 /*!40000 ALTER TABLE `userinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -78,4 +78,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-08 22:05:38
+-- Dump completed on 2023-05-09  1:56:21
