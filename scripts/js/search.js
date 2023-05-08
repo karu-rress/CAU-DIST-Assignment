@@ -5,6 +5,6 @@ function search() {
         alert("검색어를 입력해주세요.");
         return;
     }
-    location.href = "/books/search.php?search=" + search;
+    location.href = "/books/search.php?search=" + encodeURIComponent(search);
 }
 ;

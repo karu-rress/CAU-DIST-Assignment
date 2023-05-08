@@ -59,7 +59,7 @@ function checkBookForm() {
         alert('ISBN이 누락되었습니다.');
         return;
     }
-    if (!/^\d{10,14}$/.test(isbnInput.value)) { // int regex
+    if (!/^\d{8,14}$/.test(isbnInput.value)) { // int regex
         alert('ISBN의 형식이 잘못되었습니다.');
         isbnInput.focus();
         return;

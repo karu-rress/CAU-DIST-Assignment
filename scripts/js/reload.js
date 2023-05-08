@@ -5,4 +5,4 @@ function automaticReload(time) {
         window.setTimeout("window.location.reload()", time);
     }
 }
-automaticReload(5000);
+automaticReload(10000);

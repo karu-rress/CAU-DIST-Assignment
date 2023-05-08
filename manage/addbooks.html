@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Rolling Ress Library</title>
-    <link href="/account/account.css" rel="stylesheet">
+    <link href="/styles/basic.css" rel="stylesheet">
+    <link href="/styles/account.css" rel="stylesheet">
     <link href="/styles/header.css" rel="stylesheet">
+    <link href="/styles/nav.css" rel="stylesheet">
     <link href="/styles/footer.css" rel="stylesheet">
+    <script src="/scripts/js/user.js"></script>
     <script src="/scripts/js/checkform.js"></script>
     <script src="/scripts/js/includeHTML.js"></script>
+    <script src="/scripts/js/search.js"></script>
 </head>
 <body>
     <header include-html="/htmls/header.html"></header>
+    <nav>
+        <a href="/books/mothly.php" class="menu">새로 들어온 도서</a>
+        <a href="/books/all.php" class="menu">전체 도서</a>
+        <a href="/manage/addbooks.html" id="manage" class="hidden">도서 등록(관리자)</a>
+        <div>
+            <a href="/account/signin.html" class="user">Sign In</a>
+            <span class="user">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <a href="/account/signup.html" class="user">Sign Up</a>
+            <button class="user_loggedin hidden">Sign out</button>
+        </div>
+    </nav>
     <article>
         <h1>도서 추가</h1>
         <form id="book_form" name="add_book" action="/db/addbook.php" method="post">
@@ -19,10 +34,15 @@
             <input required type="text" id="add_author" name="add_author" class="box" placeholder="저자"/>
             <input required type="text" id="add_publisher" name="add_publisher" class="box" placeholder="출판사"/>
             <hr>
-            <input type="button" value="등록" onclick="checkBookForm()"/>
+            <input type="button" id="actionbutton" value="등록" onclick="checkBookForm()"/>
         </form>
     </article>
     <footer include-html="/htmls/footer.html"></footer>
-    <script>includeHTML();</script>
+    <script defer>
+        showIfById('admin', 'manage');
+        showIfByClass('*', 'user');
+        showIfByClass('*', 'user_loggedin');
+        includeHTML();
+    </script>
 </body>
 </html>

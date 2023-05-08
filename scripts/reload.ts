@@ -6,4 +6,4 @@ function automaticReload(time: number) {
     }
 }
 
-automaticReload(5000);
+automaticReload(10000);

@@ -47,12 +47,12 @@ form > hr {
     border-top: 1px solid grey;
 }
 
-input[type="text"], input[type="password"] {
+form > input[type="text"], form > input[type="password"] {
     padding: 3px;
     padding-left: 15px;
     background-color: #a5bcd655;
 }
-input[type="button"] {
+#actionbutton {
     color: white;
     height: 50px;
     background-color: #285BA9CC;
