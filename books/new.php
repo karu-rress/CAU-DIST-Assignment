@@ -50,10 +50,14 @@
                     <td><? echo $row['author'] ?></td>
                     <td><? echo $row['publisher'] ?></td>
                     <?php if (empty($row['takenby'])): ?>
-                        <td><mark>이용 가능</mark></td>
+                        <?php if (isset($_COOKIE['userlevel'])): ?>
+                            <td><mark>이용 가능</mark></td>
                         <? else: ?>
-                        <td><? echo $row['takenby']?></td>
-                        <? endif ?>
+                            <td>로그인 필요</td>
+                        <? endif; ?>
+                    <? else: ?>
+                        <td>대출중</td>
+                    <? endif ?>
                     </tr>
             <?php endwhile ?>
             </table>

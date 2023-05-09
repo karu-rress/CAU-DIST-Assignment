@@ -13,7 +13,7 @@ h1 {
     margin-top: 60px;
 }
 
-form {
+form:not([class="search"]) {
     width: 500px;
     height: 500px;
     margin: 0 auto;
@@ -29,7 +29,7 @@ form {
     align-items: center;
 }
 
-form > input {
+form:not([class="search"]) > input {
     margin: 20 auto;
     margin-left: 20px;
     margin-right: 20px;
@@ -44,7 +44,7 @@ form > input {
 
 
 /* book edit */
-form > div > input {
+form:not([class="search"]) > div > input {
     margin: 20 auto;
     margin-left: 20px;
     margin-right: 20px;
@@ -57,13 +57,13 @@ form > div > input {
     font-size: 20px;
 }
 
-form > hr {
+form:not([class="search"]) > hr {
     width: 450px;
     border: 0px;
     border-top: 1px solid grey;
 }
 
-form > input[type="text"], form > input[type="password"] {
+form:not([class="search"]) > input[type="text"], form > input[type="password"] {
     padding: 3px;
     padding-left: 15px;
     background-color: #a5bcd655;
@@ -75,7 +75,3 @@ form > input[type="text"], form > input[type="password"] {
     background-color: #285BA9CC;
 }
 
-a, p {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-}

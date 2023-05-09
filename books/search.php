@@ -2,13 +2,14 @@
     include '../db/connect.php';
 
     $search_query = $_GET['search'];
+    $option = $_GET['option'];
     $search_query_refined = preg_replace('/\s+/', ' ', $search_query);
     $search_words = explode(" ", $search_query_refined);
 
     $query = "SELECT * FROM bookinfo ";
     $first = true;
     foreach ($search_words as &$word) {
-        $query .= ($first ? "WHERE" : "AND") . " title LIKE '%$word%' ";
+        $query .= ($first ? "WHERE" : $option) . " title LIKE '%$word%' ";
         $first = false;
     }
 
@@ -59,10 +60,14 @@
                     <td><? echo $row['author'] ?></td>
                     <td><? echo $row['publisher'] ?></td>
                     <?php if (empty($row['takenby'])): ?>
-                        <td><mark>이용 가능</mark></td>
+                        <?php if (isset($_COOKIE['userlevel'])): ?>
+                            <td><mark>이용 가능</mark></td>
                         <? else: ?>
-                        <td><? echo $row['takenby']?></td>
-                        <? endif ?>
+                            <td>로그인 필요</td>
+                        <? endif; ?>
+                    <? else: ?>
+                        <td>대출중</td>
+                    <? endif ?>
                     </tr>
             <?php endwhile ?>
             </table>

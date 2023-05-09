@@ -4,5 +4,10 @@
 <a href="/index.html">
     <span id="main-title">Rolling Ress Library</span>
 </a>
-<input type="text" name="search" id="searchBox" class="box" placeholder="도서를 검색하세요"/><br>
-<input type="button" id="searchButton" value="🔍"/>
+<form class="search" id="searchForm">
+    <input type="search" name="search" id="searchBox" class="box" placeholder="도서 검색 (띄어쓰기로 AND/OR 설정)"/><br>
+    <input type="radio" checked name="searchOption" value="AND">
+    <label for="searchOption">AND</label>
+    <input type="radio" name="searchOption" value="OR">
+    <label for="searchOption">OR</label>
+</form>

@@ -17,7 +17,7 @@ nav a.menu, #manage {
     font-weight: bold;
 }
 
-a.user, span {
+a.user, span.user, a.user_loggedin {
     color: grey;
     text-decoration: none;
     font-size: 20px;

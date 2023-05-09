@@ -15,20 +15,22 @@ import { checkSigninForm, checkSignupForm, checkBookForm } from './checkform.js'
 showIfById('admin', 'manage');
 showIfByClass('*', 'user');
 showIfByClass('*', 'user_loggedin');
-// If logout button clicked
+// If logout button clicked << 이거 잠깐 삭제함
 (_a = document.querySelector("button.user_loggedin")) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function () {
     // expires cookie to be deleted
     document.cookie = "userlevel=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT";
     location.href = '/index.html';
 });
-// If search button clicked
-(_b = document.querySelector("#searchButton")) === null || _b === void 0 ? void 0 : _b.addEventListener('click', function () {
+(_b = document.querySelector("#searchForm")) === null || _b === void 0 ? void 0 : _b.addEventListener('submit', function (event) {
+    event.preventDefault();
     const search = document.querySelector("#searchBox").value;
     if (search == "") {
         alert("검색어를 입력해주세요.");
         return;
     }
-    location.href = "/books/search.php?search=" + encodeURIComponent(search);
+    const encoded = encodeURIComponent(search);
+    const option = document.querySelector('input[value="AND"]').checked ? "AND" : "OR";
+    window.location.href = `/books/search.php?search=${encoded}&option=${option}`;
 });
 // If delete button clicked
 (_c = document.querySelector('[value="삭제"]')) === null || _c === void 0 ? void 0 : _c.addEventListener('click', function () {

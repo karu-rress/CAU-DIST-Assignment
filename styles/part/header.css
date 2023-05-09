@@ -11,17 +11,24 @@ header {
     background-color: #55555522;
 }
 
+form[class="search"] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
 header > div {
     margin-right: 15px;
 }
 
-header input[type="text"] {
+input[type="search"] {
     font-size: 20px;
     height: 40px;
-    width: 400px;
+    width: 360px;
 }
 
-header input[type="button"] {
+form[class="search"] input[type="button"] {
     font-size: 20px;
     height: 46px;
     width: 46px;
@@ -32,6 +39,7 @@ header input[type="button"] {
     margin-right: 15px;
     font-size: 37px;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
 a[href="/index.html"] {

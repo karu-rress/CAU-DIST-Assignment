@@ -1,4 +1,58 @@
-# userlevel 비교
-# admin? -> /manage/about.php
-# user? -> /books/about.php
-개별 about에서 대출할 수 있도록.
+<?php
+    include '../db/connect.php';
+    $isbn = $_GET['isbn'];
+    
+    $stmt = $connect->prepare("SELECT * FROM bookinfo WHERE isbn = ?");
+    $stmt->bind_param('d', $isbn);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_array();
+    $stmt->close();
+
+    $checked = $row['takenby'] != null;
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Info | Rolling Ress Library</title>
+    <link rel="stylesheet" href="/styles/pages/about.css">
+    <link rel="stylesheet" href="/styles/attribute.css">
+    <link rel="stylesheet" href="/styles/part/header.css">
+    <link rel="stylesheet" href="/styles/part/nav.css">
+    <link rel="stylesheet" href="/styles/part/footer.css">
+    <script defer type="module" src="/scripts/js/base.js"></script>
+</head>
+<body>
+    <header include-html="/htmls/header.html"></header>
+    <nav include-html="/htmls/nav.html"></nav>
+    <article>
+    <h1>책 정보</h1>
+    <h2><? echo $row['title'] ?></h2>
+    <h3><? echo $row['author'] ?> 저</h3>
+    <b><? echo $row['publisher'] ?> | ISBN <? echo $row['isbn'] ?> | <? echo $row['uploaded'] ?> 등록</b>
+    <br><br><br><br>
+    <h3>대출하기</h3>
+    <?php if ($checked): # 대출중인가?  ?>
+        <?php if (isset($_COOKIE['userlevel'])): # 로그인 했는가? ?>
+            <?php if ($_COOKIE['userlevel'] == $row['takenby']): #본인인가? ?>
+                <!-- 본인이 대출중임 -->
+            <? else: ?>
+                <!-- 다른 사람이 대출중임 -->
+            <? endif; ?>
+        <? else: ?>
+            <!-- 다른 사람이 대출중임. 로그인하라고 할 것. -->
+        <? endif; ?>
+    <?php else: # 이용 가능한가 ?>
+        <?php if (isset($_COOKIE['userlevel'])): # 로그인 했는가? ?>
+            <!-- 대출 메뉴 표시 -->
+        <? else: ?>
+            <!-- 로그인하라고 할 것. -->
+        <? endif; ?>
+    <?php endif;   ?>
+        
+    
+    </article>
+    <footer include-html="/htmls/footer.html"></footer>
+</body>
+</html>
