@@ -28,7 +28,7 @@ input[type="search"] {
     width: 360px;
 }
 
-form[class="search"] input[type="button"] {
+form[class="search"] {
     font-size: 20px;
     height: 46px;
     width: 46px;

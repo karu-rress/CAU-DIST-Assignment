@@ -5,7 +5,7 @@ html, body {
     margin: 0;
 }
 
-article {
+article, form {
     display: flex;
     flex-direction: column;
 }
@@ -50,4 +50,22 @@ a[href] {
     font-size: 20px;
     color : darkslategrey;
     font-weight: bold;
+}
+
+input[type="button"] {
+    margin: 20 auto;
+    margin-top: 40px;
+    height: 40px;
+    width: 175px;
+
+    border: none;
+    border-radius: 13px;
+
+    font-size: 20px;
+
+    color: white;
+    height: 50px;
+    background-color: #285BA9CC;
+
+    align-self: center;
 }

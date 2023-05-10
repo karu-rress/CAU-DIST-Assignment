@@ -12,7 +12,7 @@
 (text와 password는 2개로 인정하지 않고, 동일 form 객체로 인정함)
 - [X] text/password box
 - [ ] textarea
-- [ ] checkbox
+- [X] checkbox
 - [X] radio button
 - [ ] dropdown list = select/option tag
 - [ ] 그 외 HTML5에서 사용되는 calendar 등 다른 입력 폼도 허용됨

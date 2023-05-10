@@ -18,3 +18,25 @@ h2 {
 h3 {
     font-size: 22px;
 }
+
+input[type="button"] {
+    margin: 20 auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 40px;
+    width: 175px;
+
+    border: none;
+    border-radius: 13px;
+
+    font-size: 20px;
+
+    color: white;
+    height: 50px;
+    background-color: #285BA9CC;
+}
+
+
+select, option {
+
+}

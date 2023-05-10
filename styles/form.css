@@ -49,7 +49,7 @@ form:not([class="search"]):not([id="myBooks"]) > div > input {
     margin-left: 20px;
     margin-right: 20px;
     height: 40px;
-    width: 175px;
+    width: 100px;
 
     border: none;
     border-radius: 13px;
@@ -75,3 +75,13 @@ form:not([class="search"]):not([id="myBooks"]) > input[type="text"], form > inpu
     background-color: #285BA9CC;
 }
 
+select, option {
+    margin: auto;
+    margin-right: 20px;
+    width: 140px;
+
+    border-radius: 13px;
+
+    font-size: 18px;
+    height: 40px;
+}
