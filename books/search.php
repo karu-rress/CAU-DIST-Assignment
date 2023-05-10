@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="/styles/part/header.css">
     <link rel="stylesheet" href="/styles/part/nav.css">
     <link rel="stylesheet" href="/styles/part/footer.css">
+    <link rel="icon" href="/resources/Rolling Ress.png">
     <script defer type="module" src="/scripts/js/base.js"></script>
 </head>
 <body>

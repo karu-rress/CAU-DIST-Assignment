@@ -14,13 +14,14 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>신간 도서 | Rolling Ress Library</title>
+    <title>새로 들어온 도서 | Rolling Ress Library</title>
     <link rel="stylesheet" href="/styles/pages/listall.css">
     <link rel="stylesheet" href="/styles/form.css">
     <link rel="stylesheet" href="/styles/attribute.css">
     <link rel="stylesheet" href="/styles/part/header.css">
     <link rel="stylesheet" href="/styles/part/nav.css">
     <link rel="stylesheet" href="/styles/part/footer.css">
+    <link rel="icon" href="/resources/Rolling Ress.png">
     <script defer type="module" src="/scripts/js/base.js"></script>
 </head>
 <body>

@@ -45,3 +45,7 @@ form[class="search"] {
 a[href="/index.html"] {
     text-decoration: none;
 }
+
+#formDiv {
+    width: 360px;
+}
