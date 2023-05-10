@@ -38,5 +38,12 @@ input[type="button"] {
 
 
 select, option {
+    margin: auto;
+    margin-right: 20px;
+    width: 140px;
 
+    border-radius: 13px;
+
+    font-size: 18px;
+    height: 40px;
 }

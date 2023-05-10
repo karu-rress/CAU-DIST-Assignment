@@ -69,3 +69,13 @@ input[type="button"] {
 
     align-self: center;
 }
+
+input[type="checkbox"] {
+    accent-color: #537cba;
+    border-radius: 0;
+
+    transform: scale(1.5);
+    padding: 10px;
+
+    width:80%;
+}

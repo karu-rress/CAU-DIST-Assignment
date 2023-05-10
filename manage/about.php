@@ -33,7 +33,7 @@
         <input type="text" name="publisher" class="box" placeholder="출판사" value="<? echo $row['publisher'] ?>">
         <input type="text" name="takenby" class="box" placeholder="대출자 ID (공란: 대출 가능)" value="<? echo $row['takenby'] ?>">
         <div><input type="submit" class="actionbutton" value="수정"><input type="button" class="actionbutton" value="삭제">
-        <select name="modes" id="modes">
+        <select name="modes" id="modes" isbn="<? echo $row['isbn'] ?>">
             <option value="adminMode">관리자 모드</option>
             <option value="userMode">사용자 모드</option>
         </select>

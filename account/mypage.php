@@ -38,9 +38,9 @@
                 </tr>
                 <?php while ($row = $result->fetch_array()): ?>
                     <tr>
-                    <td>
+                    <td><label class="checkBoxContainer">
                         <input type="checkbox" name="books[]" value="<? echo $row['isbn'] ?>" />
-                    </td>
+                    </label></td>
                     <td>
                         <?php if ($is_admin): ?>
                         <a href='/manage/about.php?isbn=<? echo $row['isbn'] ?>'>

@@ -7,46 +7,37 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 import { showIfById, showIfByClass } from './user.js';
 import { includeHTMLAsync } from './includeHTML.js';
-import { checkSigninForm, checkSignupForm, checkBookForm } from './checkform.js';
+import { checkReturnAllForm, checkSigninForm, checkSignupForm, checkSearchForm, checkBookForm, checkCheckOutReturnForm, checkDeleteForm, checkModifyForm } from './checkform.js';
 (() => __awaiter(void 0, void 0, void 0, function* () { return yield includeHTMLAsync(); }))();
 showIfById('admin', 'manage');
 showIfByClass('*', 'user');
 showIfByClass('*', 'user_loggedin');
+const click = 'click';
 // If logout button clicked << 이거 잠깐 삭제함
-(_a = document.querySelector("button.user_loggedin")) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function () {
+(_a = document.querySelector("button.user_loggedin")) === null || _a === void 0 ? void 0 : _a.addEventListener(click, function () {
     // expires cookie to be deleted
     document.cookie = "userlevel=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT";
     location.href = '/index.html';
 });
-(_b = document.querySelector("#searchForm")) === null || _b === void 0 ? void 0 : _b.addEventListener('submit', function (event) {
-    event.preventDefault();
-    const search = document.querySelector("#searchBox").value;
-    if (search == "") {
-        alert("검색어를 입력해주세요.");
-        return;
+(_b = document.querySelector("#searchForm")) === null || _b === void 0 ? void 0 : _b.addEventListener('submit', checkSearchForm);
+(_c = document.querySelector('[value="삭제"]')) === null || _c === void 0 ? void 0 : _c.addEventListener(click, checkDeleteForm);
+(_d = document.querySelector('[value="수정"]')) === null || _d === void 0 ? void 0 : _d.addEventListener(click, checkModifyForm);
+(_e = document.querySelector('[value="로그인"]')) === null || _e === void 0 ? void 0 : _e.addEventListener(click, checkSigninForm);
+(_f = document.querySelector('[value="회원가입"]')) === null || _f === void 0 ? void 0 : _f.addEventListener(click, checkSignupForm);
+(_g = document.querySelector('[value="등록"]')) === null || _g === void 0 ? void 0 : _g.addEventListener(click, checkBookForm);
+(_h = document.querySelector('[name="bookForm"]')) === null || _h === void 0 ? void 0 : _h.addEventListener(click, checkCheckOutReturnForm);
+(_j = document.querySelector('[value="일괄 반납"]')) === null || _j === void 0 ? void 0 : _j.addEventListener(click, checkReturnAllForm);
+(_k = document.querySelector('#modes')) === null || _k === void 0 ? void 0 : _k.addEventListener('change', function () {
+    const dropdown = document.querySelector('#modes');
+    const value = dropdown.value;
+    const isbn = dropdown.getAttribute('isbn');
+    if (value === 'adminMode') {
+        location.href = "/manage/about.php?isbn=" + isbn;
     }
-    const encoded = encodeURIComponent(search);
-    const option = document.querySelector('input[value="AND"]').checked ? "AND" : "OR";
-    window.location.href = `/books/search.php?search=${encoded}&option=${option}`;
+    else if (value === 'userMode') {
+        location.href = "/books/about.php?isbn=" + isbn;
+    }
 });
-// If delete button clicked
-(_c = document.querySelector('[value="삭제"]')) === null || _c === void 0 ? void 0 : _c.addEventListener('click', function () {
-    const ok = confirm('※경고! 정말로 이 책을 삭제하시겠습니까?');
-    if (!ok) {
-        return;
-    }
-    const urlParams = new URLSearchParams(window.location.search);
-    const isbnParam = urlParams.get('isbn');
-    if (isbnParam == null) {
-        alert(`ISBN 처리에 문제가 발생했습니다.
-ISBN: ${isbnParam}`);
-        return;
-    }
-    location.href = "/db/delete.php?isbn=" + isbnParam;
-});
-(_d = document.querySelector('[value="로그인"]')) === null || _d === void 0 ? void 0 : _d.addEventListener('click', checkSigninForm);
-(_e = document.querySelector('[value="회원가입"]')) === null || _e === void 0 ? void 0 : _e.addEventListener('click', checkSignupForm);
-(_f = document.querySelector('[value="등록"]')) === null || _f === void 0 ? void 0 : _f.addEventListener('click', checkBookForm);

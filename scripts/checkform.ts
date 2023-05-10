@@ -1,3 +1,5 @@
+import { getUser } from './user.js';
+
 export function checkSigninForm() {
     const form = document.getElementById("signin_form") as HTMLFormElement;
     const idInput = document.getElementById("signin_id") as HTMLInputElement;
@@ -84,4 +86,88 @@ export function checkBookForm() {
         return;
     }
     form.submit();
+}
+
+export function checkCheckOutReturnForm() {
+    const form = document.querySelector('[name="bookForm"]') as HTMLFormElement;
+
+    if (getUser() == null) {
+        alert('로그인 정보가 없습니다.');
+        return;
+    }
+    form.submit();
+}
+
+export function checkReturnAllForm() {
+    const form = document.querySelector("#myBooks") as HTMLFormElement;
+
+    if (getUser() == null) {
+        alert('로그인 정보가 없습니다.');
+        return;
+    }
+
+    let checked: boolean = false;
+
+    const checkboxes = document.querySelectorAll('[type="checkbox"]');
+    for (const cb of checkboxes) {
+        if ((cb as HTMLInputElement).checked)
+            checked = true;
+    }
+
+    
+    if (!checked) {
+        alert('책을 선택해주세요.');
+        return;
+    }
+    form.submit();
+}
+
+
+
+export function checkDeleteForm() {
+    const ok = confirm('※경고! 정말로 이 책을 삭제하시겠습니까?');
+    if (!ok) {
+        return;
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const isbnParam = urlParams.get('isbn');
+    if (isbnParam == null) {
+        alert(`ISBN 처리에 문제가 발생했습니다.
+ISBN: ${isbnParam}`);
+        return;
+    }
+
+    location.href = "/db/delete.php?isbn=" + isbnParam;
+}
+
+export function checkModifyForm() {
+    const ok = confirm('※책 정보를 수정하시겠습니까?');
+    if (!ok) {
+        return;
+    }
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const isbnParam = urlParams.get('isbn');
+    if (isbnParam == null) {
+        alert(`ISBN 처리에 문제가 발생했습니다.
+ISBN: ${isbnParam}`);
+        return;
+    }
+
+    location.href = "/db/update.php?isbn=" + isbnParam;
+}
+
+export function checkSearchForm(event : Event) {
+    event.preventDefault();
+
+    const search = (document.querySelector("#searchBox") as HTMLInputElement).value;
+    if (search == "") {
+        alert("검색어를 입력해주세요.");
+        return;
+    }
+
+    const encoded = encodeURIComponent(search);
+    const option = (document.querySelector('input[value="AND"]') as HTMLInputElement).checked ? "AND" : "OR";
+    window.location.href = `/books/search.php?search=${encoded}&option=${option}`;
 }

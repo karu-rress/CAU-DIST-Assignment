@@ -10,6 +10,7 @@
     $stmt->close();
 
     $checked = $row['takenby'] != null;
+    $is_admin = ($_COOKIE['userlevel'] ?? "") == 'admin';
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -31,7 +32,14 @@
     <h2><? echo $row['title'] ?></h2>
     <h3><? echo $row['author'] ?> 저</h3>
     <b><? echo $row['publisher'] ?> | ISBN <? echo $row['isbn'] ?> | <? echo $row['uploaded'] ?> 등록</b>
-    <br><br><br><br>
+    <br><br>
+    <?php if ($is_admin): ?>
+        <select name="modes" id="modes" isbn="<? echo $row['isbn'] ?>">
+            <option value="userMode">사용자 모드</option>
+            <option value="adminMode">관리자 모드</option>
+        </select>
+    <?php endif; ?>
+    <br><br>
     <h3>대출</h3>
 
     <?php if ($checked): # 대출중인가?  ?>
