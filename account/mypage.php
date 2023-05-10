@@ -28,7 +28,7 @@
         <nav include-html="/htmls/nav.html"></nav>
         <article>
             <h1 id="article_title">마이페이지</h1>
-            <form id="myBooks">
+            <form id="myBooks", method="get", action="../db/mybooks.php">
                 <table cellspacing="0" cellpadding="5">
                 <tr>
                     <td>선택</td>
@@ -39,7 +39,7 @@
                 <?php while ($row = $result->fetch_array()): ?>
                     <tr>
                     <td>
-                        <input type="checkbox" name="books" />
+                        <input type="checkbox" name="books[]" value="<? echo $row['isbn'] ?>" />
                     </td>
                     <td>
                         <?php if ($is_admin): ?>
@@ -53,15 +53,9 @@
                     <td><? echo $row['author'] ?></td>
                     <td><? echo $row['publisher'] ?></td>
                     </tr>
-            <?php endwhile ?>
-            </table>
-                <!--select name="mybooks" id="mybooks">
-                    <?php# for ($i = 0; $row = $result->fetch_array();): ?>
-                        <?php# if ($row['takenby'] == $_COOKIE['userlevel']): ?>
-                            <option value="book<?#echo $i++?>"><? #echo $row['title'] ?></option>
-                        <?php# endif; ?>
-                    <?php# endfor; ?>
-                </select>-->
+                <?php endwhile ?>
+                </table>
+                <input type="button" value="일괄 반납">
             </form>
         </article>
     </div>

@@ -32,27 +32,39 @@
     <h3><? echo $row['author'] ?> 저</h3>
     <b><? echo $row['publisher'] ?> | ISBN <? echo $row['isbn'] ?> | <? echo $row['uploaded'] ?> 등록</b>
     <br><br><br><br>
-    <h3>대출하기</h3>
+    <h3>대출</h3>
+
     <?php if ($checked): # 대출중인가?  ?>
         <?php if (isset($_COOKIE['userlevel'])): # 로그인 했는가? ?>
             <?php if ($_COOKIE['userlevel'] == $row['takenby']): #본인인가? ?>
                 <!-- 본인이 대출중임 -->
-
+                <p>이미 대출 중인 도서입니다. '마이페이지'에서 확인 가능합니다.</p>
+                <form name="bookForm" method="post" action="../db/return.php?isbn=<? echo $isbn ?>">
+                    <input type="button" value="반납하기">
+                </form>
             <? else: ?>
                 <!-- 다른 사람이 대출중임 -->
+                <p>현재 다른 분께서 대출 중인 도서입니다.</p>
             <? endif; ?>
-        <? else: ?>
+        <? else: ?>            
             <!-- 다른 사람이 대출중임. 로그인하라고 할 것. -->
+            <p>현재 다른 분께서 대출 중인 도서입니다.
+                <br>본인이 대출 중인 책이라면 로그인 후 확인해주세요.
+            </p>
         <? endif; ?>
     <?php else: # 이용 가능한가 ?>
         <?php if (isset($_COOKIE['userlevel'])): # 로그인 했는가? ?>
             <!-- 대출 메뉴 표시 -->
+            <p>대출 가능한 도서입니다.</p>
+            <form name="bookForm" method="post" action="../db/checkout.php?isbn=<? echo $isbn ?>">
+                <input type="button" value="대출하기">
+            </form>
         <? else: ?>
             <!-- 로그인하라고 할 것. -->
+            <p>대출 가능한 도서입니다.<br>대출을 하시려면 로그인 해주세요.</p>
         <? endif; ?>
     <?php endif;   ?>
-        
-    
+
     </article>
     <footer include-html="/htmls/footer.html"></footer>
 </body>

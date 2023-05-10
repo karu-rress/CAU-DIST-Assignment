@@ -30,7 +30,7 @@
 
     # id, pwd, name(varchar), age(uint)
     $stmt = $connect->prepare("INSERT INTO userinfo(id, pwd, name, age) VALUES(?, ?, ?, ?)");
-    $stmt->bind_param('sssd', $id, $userpwd, $username, $userage);
+    $stmt->bind_param('sssi', $id, $userpwd, $username, $userage);
     $stmt->execute();
     $stmt->close();
 

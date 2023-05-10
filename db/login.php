@@ -29,9 +29,10 @@
         echo "<script>alert('비밀번호가 일치하지 않습니다.');
         location.href = '/account/signin.html';</script>";
     }
-
+    else {
     echo '<script>document.cookie = "userlevel='.$id.'; path=/";
         location.href = "/index.html";</script>';
+    }
 ?>
 </body>
 </html>

@@ -10,7 +10,7 @@
     $stmt->close();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>Book Info | Rolling Ress Library</title>
@@ -31,8 +31,13 @@
         <input type="text" name="title" class="box" placeholder="제목" value="<? echo $row['title'] ?>">
         <input type="text" name="author" class="box" placeholder="저자" value="<? echo $row['author'] ?>">
         <input type="text" name="publisher" class="box" placeholder="출판사" value="<? echo $row['publisher'] ?>">
-        <input type="text" name="takenby" class="box" placeholder="대출자 (미 입력시 대출 가능 상태)" value="<? echo $row['takenby'] ?>">
-        <div><input type="submit" class="actionbutton" value="수정"><input type="button" class="actionbutton" value="삭제"></div>
+        <input type="text" name="takenby" class="box" placeholder="대출자 ID (공란: 대출 가능)" value="<? echo $row['takenby'] ?>">
+        <div><input type="submit" class="actionbutton" value="수정"><input type="button" class="actionbutton" value="삭제">
+        <select name="modes" id="modes">
+            <option value="adminMode">관리자 모드</option>
+            <option value="userMode">사용자 모드</option>
+        </select>
+        </div>
     </form>
     </article>
     <footer include-html="/htmls/footer.html"></footer>

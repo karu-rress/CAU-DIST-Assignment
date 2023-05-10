@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
 <?php
     include '../db/connect.php';
 
@@ -7,13 +13,21 @@
     $publisher = $_POST['publisher'];
     $takenby = $_POST['takenby'];
 
-# SQL 인젝션 방지 코드 삽입
+    $stmt = $connect->prepare("UPDATE bookinfo SET title = ?, author = ?, publisher = ?, takenby = ? WHERE isbn = ?");
+    $stmt->bind_param('ssssi', $title, $author, $publisher, $takenby, $isbn);
+    $stmt->execute();
 
-    $query="UPDATE bookinfo SET title = '$title', author = '$author', publisher = '$publisher', takenby = '$takenby' where isbn = '$isbn'";
-    // echo $query;
-    mysqli_query($connect, $query);
+    $rows = $stmt->affected_rows;
+    $stmt->close();
+
+    if ($rows == 0) {
+        echo '<script>alert("오류가 발생했습니다. ISBN을 확인하세요.");
+        location.href = "/manage/about.php?isbn=' . $isbn .'"</script>';
+    }
+    else {
+    echo '<script>alert("수정되었습니다.");
+        location.href = "/books/all.php";</script>';
+    }
 ?>
-<script>
-    location.href = '/index.html';
-</script>
-
+</body>
+</html>
