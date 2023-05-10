@@ -37,6 +37,7 @@
         <?php if (isset($_COOKIE['userlevel'])): # 로그인 했는가? ?>
             <?php if ($_COOKIE['userlevel'] == $row['takenby']): #본인인가? ?>
                 <!-- 본인이 대출중임 -->
+
             <? else: ?>
                 <!-- 다른 사람이 대출중임 -->
             <? endif; ?>

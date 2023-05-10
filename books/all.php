@@ -6,7 +6,7 @@
     $result = $stmt->get_result();
     $stmt->close();
 
-    $is_admin = $_COOKIE['userlevel'] ?? "" == 'admin';
+    $is_admin = ($_COOKIE['userlevel'] ?? "") == 'admin';
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -59,8 +59,8 @@
                     </tr>
             <? endwhile ?>
             </table>
-        </article>
     </div>
+        </article>
     <footer include-html="/htmls/footer.html"></footer>
 </body>
 </html>

@@ -13,7 +13,7 @@ h1 {
     margin-top: 60px;
 }
 
-form:not([class="search"]) {
+form:not([class="search"]):not([id="myBooks"]) {
     width: 500px;
     height: 500px;
     margin: 0 auto;
@@ -29,7 +29,7 @@ form:not([class="search"]) {
     align-items: center;
 }
 
-form:not([class="search"]) > input {
+form:not([class="search"]):not([id="myBooks"]) > input {
     margin: 20 auto;
     margin-left: 20px;
     margin-right: 20px;
@@ -44,7 +44,7 @@ form:not([class="search"]) > input {
 
 
 /* book edit */
-form:not([class="search"]) > div > input {
+form:not([class="search"]):not([id="myBooks"]) > div > input {
     margin: 20 auto;
     margin-left: 20px;
     margin-right: 20px;
@@ -63,7 +63,7 @@ form:not([class="search"]) > hr {
     border-top: 1px solid grey;
 }
 
-form:not([class="search"]) > input[type="text"], form > input[type="password"] {
+form:not([class="search"]):not([id="myBooks"]) > input[type="text"], form > input[type="password"] {
     padding: 3px;
     padding-left: 15px;
     background-color: #a5bcd655;

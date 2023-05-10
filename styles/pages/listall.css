@@ -18,12 +18,25 @@ h1 {
 }
 
 table {
-    width: 90%;
     align-self: center;
 
     border: 1px solid;
     border-collapse:collapse;
 }
+
+table:not(#myBooks > table) {
+    width: 90%;
+}
+
+#myBooks > table {
+    width: 100%;
+}
+
+#myBooks {
+    align-self: center;
+    width: 90%;
+}
+
 
 table > tr {
 
