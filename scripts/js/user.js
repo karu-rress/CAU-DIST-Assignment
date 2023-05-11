@@ -1,3 +1,6 @@
+/**
+ * @returns userlevel string (null if not set)
+ */
 export function getUser() {
     const userCookie = document.cookie.match('(^|;) ?' + 'userlevel' + '=([^;]*)(;|$)');
     return userCookie ? userCookie[2] : null;

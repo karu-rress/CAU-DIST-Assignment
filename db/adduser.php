@@ -10,15 +10,12 @@
     # 입력값이 비었는지는 Client (signin.html) 단에서 구현
     $id = $_POST["signup_id"];
 
-    # SQL injection prevention method.
     $stmt = $connect->prepare("SELECT * FROM userinfo WHERE id = ?");
     $stmt->bind_param('s', $id);
     $stmt->execute();
 
     $result = $stmt->get_result();
-    $num = $result->num_rows;
-
-    if ($num != 0) {
+    if ($result->num_rows; != 0) {
         $stmt->close();
         echo "<script>alert('이미 존재하는 ID입니다.');
             location.href = '/account/signup.html';</script>";

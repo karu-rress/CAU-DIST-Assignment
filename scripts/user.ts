@@ -1,3 +1,6 @@
+/**
+ * @returns userlevel string (null if not set)
+ */
 export function getUser(): string | null {
     const userCookie = 
         document.cookie.match('(^|;) ?' + 'userlevel' + '=([^;]*)(;|$)');
@@ -6,7 +9,6 @@ export function getUser(): string | null {
 
 export function showIfById(userLevel: string, id: string) {
     const elem = document.getElementById(id);
-
     if (elem != null && getUser() === userLevel) {
         elem.classList.remove('hidden');
     }

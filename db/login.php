@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+    </head>
 <body>
 <?php
     include 'connect.php';
@@ -30,7 +33,7 @@
         location.href = '/account/signin.html';</script>";
     }
     else {
-    echo '<script>document.cookie = "userlevel='.$id.'; path=/";
+    echo '<script>document.cookie = "userlevel=' . $id . '; path=/";
         location.href = "/index.html";</script>';
     }
 ?>

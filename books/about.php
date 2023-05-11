@@ -1,7 +1,7 @@
 <?php
     include '../db/connect.php';
     $isbn = $_GET['isbn'];
-    $stmt = $connect->prepare("SELECT info.*, price, published, link, details.isbn as isbn_d
+    $stmt = $connect->prepare("SELECT info.*, price, published, link, details.isbn AS isbn_d
         FROM bookinfo AS info
         LEFT OUTER JOIN bookdetails AS details
         ON info.isbn = details.isbn

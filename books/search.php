@@ -4,7 +4,7 @@
     $search_query = $_GET['search'];
     $option = $_GET['option'];
     $search_query_refined = preg_replace('/\s+/', ' ', $search_query);
-    $search_words = explode(" ", $search_query_refined);
+    $search_words = explode(' ', $search_query_refined);
 
     $query = "SELECT * FROM bookinfo ";
     $first = true;
@@ -17,7 +17,6 @@
     $stmt->execute();    
     $result = $stmt->get_result();
     $stmt->close();
-
     $is_admin = ($_COOKIE['userlevel'] ?? "") == 'admin';
 ?>
 <!DOCTYPE html>

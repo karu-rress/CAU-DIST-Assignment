@@ -3,7 +3,7 @@
     $isbn = $_GET['isbn'];
     
     $stmt = $connect->prepare("SELECT * FROM bookinfo WHERE isbn = ?");
-    $stmt->bind_param('d', $isbn);
+    $stmt->bind_param('i', $isbn);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_array();

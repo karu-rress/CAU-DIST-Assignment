@@ -1,6 +1,6 @@
 import { getUser } from './user.js';
 
-export function checkSigninForm() {
+export function signin() {
     const form = document.getElementById("signin_form") as HTMLFormElement;
     const idInput = document.getElementById("signin_id") as HTMLInputElement;
     const pwdInput = document.getElementById("signin_pwd") as HTMLInputElement;
@@ -18,7 +18,7 @@ export function checkSigninForm() {
     form.submit();
 }
 
-export function checkSignupForm() {
+export function signup() {
     // querySelector('#id');
     const form = document.getElementById("signup_form") as HTMLFormElement;
     const idInput = document.getElementById("signup_id") as HTMLInputElement;
@@ -54,7 +54,7 @@ export function checkSignupForm() {
     form.submit();
 }
 
-export function checkBookForm() {
+export function book() {
     const form = document.getElementById("book_form") as HTMLFormElement;
     const isbnInput = document.getElementById("add_isbn") as HTMLInputElement;
     const titleInput = document.getElementById("add_title") as HTMLInputElement;
@@ -88,9 +88,8 @@ export function checkBookForm() {
     form.submit();
 }
 
-export function checkCheckOutReturnForm() {
+export function checkoutReturn() {
     const form = document.querySelector('[name="bookForm"]') as HTMLFormElement;
-
     if (getUser() == null) {
         alert('로그인 정보가 없습니다.');
         return;
@@ -98,23 +97,20 @@ export function checkCheckOutReturnForm() {
     form.submit();
 }
 
-export function checkReturnAllForm() {
+export function returnAll() {
     const form = document.querySelector("#myBooks") as HTMLFormElement;
-
     if (getUser() == null) {
         alert('로그인 정보가 없습니다.');
         return;
     }
 
     let checked: boolean = false;
-
     const checkboxes = document.querySelectorAll('[type="checkbox"]');
     for (const cb of checkboxes) {
         if ((cb as HTMLInputElement).checked)
             checked = true;
     }
 
-    
     if (!checked) {
         alert('책을 선택해주세요.');
         return;
@@ -122,9 +118,7 @@ export function checkReturnAllForm() {
     form.submit();
 }
 
-
-
-export function checkDeleteForm() {
+export function remove() {
     const ok = confirm('※경고! 정말로 이 책을 삭제하시겠습니까?');
     if (!ok) {
         return;
@@ -133,15 +127,13 @@ export function checkDeleteForm() {
     const urlParams = new URLSearchParams(window.location.search);
     const isbnParam = urlParams.get('isbn');
     if (isbnParam == null) {
-        alert(`ISBN 처리에 문제가 발생했습니다.
-ISBN: ${isbnParam}`);
+        alert(`ISBN 처리에 문제가 발생했습니다.\nISBN: ${isbnParam}`);
         return;
     }
-
-    location.href = "/db/delete.php?isbn=" + isbnParam;
+    location.href = `/db/delete.php?isbn=${isbnParam}`;
 }
 
-export function checkModifyForm() {
+export function modify() {
     const ok = confirm('※책 정보를 수정하시겠습니까?');
     if (!ok) {
         return;
@@ -150,17 +142,14 @@ export function checkModifyForm() {
     const urlParams = new URLSearchParams(window.location.search);
     const isbnParam = urlParams.get('isbn');
     if (isbnParam == null) {
-        alert(`ISBN 처리에 문제가 발생했습니다.
-ISBN: ${isbnParam}`);
+        alert(`ISBN 처리에 문제가 발생했습니다.\nISBN: ${isbnParam}`);
         return;
     }
-
-    location.href = "/db/update.php?isbn=" + isbnParam;
+    location.href = `/db/update.php?isbn=${isbnParam}`;
 }
 
-export function checkSearchForm(event : Event) {
+export function search(event : Event) {
     event.preventDefault();
-
     const search = (document.querySelector("#searchBox") as HTMLInputElement).value;
     if (search == "") {
         alert("검색어를 입력해주세요.");
@@ -169,5 +158,5 @@ export function checkSearchForm(event : Event) {
 
     const encoded = encodeURIComponent(search);
     const option = (document.querySelector('input[value="AND"]') as HTMLInputElement).checked ? "AND" : "OR";
-    window.location.href = `/books/search.php?search=${encoded}&option=${option}`;
+    location.href = `/books/search.php?search=${encoded}&option=${option}`;
 }
