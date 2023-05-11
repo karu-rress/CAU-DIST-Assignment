@@ -1,8 +1,11 @@
 <?php
     include '../db/connect.php';
     $isbn = $_GET['isbn'];
-    
-    $stmt = $connect->prepare("SELECT * FROM bookinfo WHERE isbn = ?");
+    $stmt = $connect->prepare("SELECT info.*, price, published, link, details.isbn as isbn_d
+        FROM bookinfo AS info
+        LEFT OUTER JOIN bookdetails AS details
+        ON info.isbn
+        WHERE info.isbn = ?");
     $stmt->bind_param('d', $isbn);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -11,6 +14,8 @@
 
     $checked = $row['takenby'] != null;
     $is_admin = ($_COOKIE['userlevel'] ?? "") == 'admin';
+
+    # JOIN JOIN JOIN
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -34,13 +39,19 @@
     <h3><? echo $row['author'] ?> 저</h3>
     <b><? echo $row['publisher'] ?> | ISBN <? echo $row['isbn'] ?> | <? echo $row['uploaded'] ?> 등록</b>
     <br><br>
+    <?php if (isset($row['isbn_d'])): ?>
+        <b>정가: <? echo $row['price'] ?>원 | 출판일:  <? echo $row['published'] ?> | 
+        <a target="_blank" href="<? echo $row['link'] ?>">도서 구매 링크</a></b>
+        <br><br>
+    <?php endif; ?>
+    <br><br>
     <?php if ($is_admin): ?>
         <select name="modes" id="modes" isbn="<? echo $row['isbn'] ?>">
             <option value="userMode">사용자 모드</option>
             <option value="adminMode">관리자 모드</option>
         </select>
+        <br><br>
     <?php endif; ?>
-    <br><br>
     <h3>대출</h3>
 
     <?php if ($checked): # 대출중인가?  ?>

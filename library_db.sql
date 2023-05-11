@@ -37,6 +37,7 @@ CREATE TABLE `bookdetails` (
 
 LOCK TABLES `bookdetails` WRITE;
 /*!40000 ALTER TABLE `bookdetails` DISABLE KEYS */;
+INSERT INTO `bookdetails` VALUES (9791158393724,36000,'2022-10-27','http://www.yes24.com/Product/Goods/114854152');
 /*!40000 ALTER TABLE `bookdetails` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,4 +131,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-11 12:02:25
+-- Dump completed on 2023-05-11 13:45:45
