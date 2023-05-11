@@ -4,7 +4,7 @@
     $stmt = $connect->prepare("SELECT info.*, price, published, link, details.isbn as isbn_d
         FROM bookinfo AS info
         LEFT OUTER JOIN bookdetails AS details
-        ON info.isbn
+        ON info.isbn = details.isbn
         WHERE info.isbn = ?");
     $stmt->bind_param('d', $isbn);
     $stmt->execute();
