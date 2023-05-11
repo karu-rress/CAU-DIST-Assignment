@@ -11,7 +11,6 @@
 ## `[HTML, CSS]` 입력 폼은 다음 중에 최소 4개를 사용해야 함.
 (text와 password는 2개로 인정하지 않고, 동일 form 객체로 인정함)
 - [X] text/password box (로그인 등에 사용)
-- [ ] textarea
 - [X] checkbox (마이페이지에서 사용)
 - [X] radio button (검색창에서 사용)
 - [X] dropdown list = select/option tag (관리자용 책 정보 페이지에서 사용)
@@ -25,7 +24,7 @@
     "대여가능"->"대여불가"로 상태변경해서 보여주어야 함
  
 ## `[DB]`
-- [ ] 반드시 Join과 Subquery를 각각 1번 이상 사용하여 query를 작성하고, 이를 결과로 보여주어야 함.
+- [X] 반드시 Join과 Subquery를 각각 1번 이상 사용하여 query를 작성하고, 이를 결과로 보여주어야 함. (Join - 상세페이지, Subquery - 새로들어온 책)
 - [X] 수정/삭제 기능을 위해서 update와 delete 사용
 - [X] 테이블의 개수는 최소 4개 이상이어야 하며,
 - [ ] 각 테이블 당 record의 개수는 최소 10개 이상

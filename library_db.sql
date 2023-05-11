@@ -81,7 +81,7 @@ CREATE TABLE `log` (
   `user` varchar(30) NOT NULL,
   `action` varchar(45) NOT NULL,
   `time` datetime NOT NULL,
-  PRIMARY KEY (`isbn`),
+  PRIMARY KEY (`time`),
   KEY `user_idx` (`user`),
   CONSTRAINT `user` FOREIGN KEY (`user`) REFERENCES `userinfo` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -131,4 +131,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-11 13:45:45
+-- Dump completed on 2023-05-11 14:05:35

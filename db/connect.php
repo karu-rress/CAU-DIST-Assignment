@@ -9,4 +9,8 @@
         printf("Connect failed: %s\n", $connect->connect_error);
         exit();
     }
+
+    function addlog($isbn, $user, $action) {
+        
+    }
 ?>

@@ -2,7 +2,10 @@
     include '../db/connect.php';
 
     $query = "SELECT * FROM bookinfo
-        WHERE DATEDIFF(uploaded, NOW()) <= 20";
+        WHERE DATEDIFF(uploaded, NOW()) <= (
+            SELECT AVG(DATEDIFF(uploaded, NOW()))
+            FROM bookinfo
+        )";
     $stmt = $connect->prepare($query);
     $stmt->execute();    
     $result = $stmt->get_result();
