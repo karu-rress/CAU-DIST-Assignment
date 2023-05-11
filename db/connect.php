@@ -10,7 +10,9 @@
         exit();
     }
 
-    function addlog($isbn, $user, $action) {
-        
+    function addlog($conn, $isbn, $user, $action) {
+        $stmt = $conn->prepare("INSERT INTO log VALUES(?, ?, ?, NOW())");
+        $stmt->bind_param("iss", $isbn, $user, $action);
+        $stmt->execute();
     }
 ?>

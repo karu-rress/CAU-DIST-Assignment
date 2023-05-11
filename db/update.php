@@ -18,13 +18,14 @@
     $stmt->execute();
 
     $rows = $stmt->affected_rows;
-    $stmt->close();
-
     if ($rows == 0) {
+        $stmt->close();
         echo '<script>alert("오류가 발생했습니다. ISBN을 확인하세요.");
         location.href = "/manage/about.php?isbn=' . $isbn .'"</script>';
     }
     else {
+        addlog($connect, $isbn, 'admin', 'edit');
+        $stmt->close();
     echo '<script>alert("수정되었습니다.");
         location.href = "/books/all.php";</script>';
     }

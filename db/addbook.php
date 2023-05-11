@@ -41,6 +41,9 @@
     $stmt = $connect->prepare("INSERT INTO bookinfo(isbn, title, author, publisher, uploaded) VALUES(?, ?, ?, ?, NOW())");
     $stmt->bind_param('dsss', $isbn, $title, $author, $publisher);
     $stmt->execute();
+
+    addlog($connect, $isbn, 'admin', 'add');
+
     $stmt->close();
 
     echo '<script>location.href = "/books/all.php";</script>';
