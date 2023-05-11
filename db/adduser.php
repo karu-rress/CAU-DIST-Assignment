@@ -15,7 +15,7 @@
     $stmt->execute();
 
     $result = $stmt->get_result();
-    if ($result->num_rows; != 0) {
+    if ($result->num_rows != 0) {
         $stmt->close();
         echo "<script>alert('이미 존재하는 ID입니다.');
             location.href = '/account/signup.html';</script>";

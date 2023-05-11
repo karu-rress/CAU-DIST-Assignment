@@ -79,3 +79,7 @@ input[type="checkbox"] {
 
     width:80%;
 }
+
+[value="일괄 반납"] + p {
+    align-self: center;
+}
