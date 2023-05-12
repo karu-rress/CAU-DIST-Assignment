@@ -32,10 +32,10 @@
             <form id="myBooks", method="get", action="../db/mybooks.php">
                 <table cellspacing="0" cellpadding="5">
                 <tr>
-                    <td>선택</td>
-                    <td>제목</td>
-                    <td>저자</td>
-                    <td>출판사</td>
+                    <th>선택</th>
+                    <th>제목</th>
+                    <th>저자</th>
+                    <th>출판사</th>
                 </tr>
                 <?php while ($row = $result->fetch_array()): ?>
                     <tr>

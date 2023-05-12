@@ -33,11 +33,11 @@
         <article>
             <h1>새로 들어온 도서</h1>
             <table cellspacing="0" cellpadding="5">
-                <tr>
-                    <td>제목</td>
-                    <td>저자</td>
-                    <td>출판사</td>
-                    <td>상태</td>
+            <tr>
+                    <th>제목</th>
+                    <th>저자</th>
+                    <th>출판사</th>
+                    <th>상태</th>
                 </tr>
                 <?php while ($row = $result->fetch_array()): ?>
                     <tr>

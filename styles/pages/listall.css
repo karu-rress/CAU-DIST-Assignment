@@ -19,9 +19,17 @@ h1 {
 
 table {
     align-self: center;
+    border: #CD5C5C;
+    border-collapse: collapse;
+}
 
-    border: 1px solid;
-    border-collapse:collapse;
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #CD5C5C;
+}
+
+tr:hover {
+    background-color: #F5F5F5;
 }
 
 table:not(#myBooks > table) {
