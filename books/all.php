@@ -60,6 +60,7 @@
                     </tr>
             <? endwhile ?>
             </table>
+            <br><br><br>
     </div>
         </article>
     <footer include-html="/htmls/footer.html"></footer>

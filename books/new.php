@@ -64,6 +64,7 @@
                     </tr>
             <?php endwhile ?>
             </table>
+            <br><br><br>
         </article>
     </div>
     <footer include-html="/htmls/footer.html"></footer>
