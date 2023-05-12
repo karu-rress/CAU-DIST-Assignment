@@ -5,11 +5,6 @@ html, body {
     margin: 0;
 }
 
-article, form {
-    display: flex;
-    flex-direction: column;
-}
-
 h1 {
     font-size: 30px;
     text-align: center;
@@ -17,19 +12,42 @@ h1 {
     margin-top: 20px;
 }
 
+article, form {
+    display: flex;
+    flex-direction: column;
+}
+
 table {
     align-self: center;
-    border: #CD5C5C;
+    border: #143062;
     border-collapse: collapse;
+    border-top: 1px solid #143062;
 }
 
 th, td {
     padding: 10px;
-    border-bottom: 1px solid #CD5C5C;
+    border-bottom: 1px solid #143062;
 }
 
-tr:hover {
-    background-color: #F5F5F5;
+th {
+    font-size: 19px;
+    text-decoration: none;
+    color: white;
+    background-color:#3064b2;
+    text-align: left;
+    padding-left: 10px;
+}
+
+td.available {
+    background-color:#fdffb5;
+}
+
+tr:hover:not(tr:first-child) {
+    background-color: #edf1fb;
+}
+tr:hover:not(tr:first-child) > td.available {
+    background-color: #fbff8c;
+    font-weight: bold;
 }
 
 table:not(#myBooks > table) {
@@ -45,18 +63,13 @@ table:not(#myBooks > table) {
     width: 90%;
 }
 
-
-table > tr {
-
-}
-
 a[href] {
     text-decoration: none;
 }
 
 .book_title {
-    font-size: 20px;
-    color : darkslategrey;
+    font-size: 19px;
+    color: #173157;
     font-weight: bold;
 }
 

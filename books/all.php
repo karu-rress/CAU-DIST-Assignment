@@ -50,7 +50,7 @@
                     <td><? echo $row['publisher'] ?></td>
                     <?php if (empty($row['takenby'])): ?>
                         <?php if (isset($_COOKIE['userlevel'])): ?>
-                            <td><mark>이용 가능</mark></td>
+                            <td class="available">이용 가능</td>
                         <? else: ?>
                             <td>로그인 필요</td>
                         <? endif; ?>
