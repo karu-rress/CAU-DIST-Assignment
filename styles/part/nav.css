@@ -17,6 +17,11 @@ nav a.menu, #manage {
     font-weight: bold;
 }
 
+nav a.menu:hover, #manage:hover {
+    color:#448efe;
+    text-decoration: underline dotted;
+}
+
 a.user, span.user, a.user_loggedin {
     color: grey;
     text-decoration: none;

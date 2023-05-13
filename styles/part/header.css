@@ -8,7 +8,7 @@ header {
     
     height: 140px;
     width: 100%;
-    background-color: #55555522;
+    background-color: #55555511;
 }
 
 form[class="search"] {
@@ -26,6 +26,9 @@ input[type="search"] {
     font-size: 20px;
     height: 40px;
     width: 360px;
+    border-color: rgb(31, 74, 109);
+    border-radius: 10px;
+    background-color: #e1e9f1;
 }
 
 form[class="search"] {
@@ -48,4 +51,9 @@ a[href="/index.html"] {
 
 #formDiv {
     width: 360px;
+}
+
+input[type="radio"] {
+    accent-color: #537cba;
+    transform: scale(1.2);
 }

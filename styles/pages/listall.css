@@ -38,16 +38,25 @@ th {
     padding-left: 10px;
 }
 
+.book_title {
+    font-size: 19px;
+    color: #173157;
+    font-weight: bold;
+}
+
 td.available {
     background-color:#fdffb5;
 }
 
 tr:hover:not(tr:first-child) {
     background-color: #edf1fb;
-}
-tr:hover:not(tr:first-child) > td.available {
-    background-color: #fbff8c;
-    font-weight: bold;
+    .book_title {
+        color: #3a79d8;
+    };
+    .available {
+        background-color: #fbff8c;
+        font-weight: bold;
+    }
 }
 
 table:not(#myBooks > table) {
@@ -63,14 +72,8 @@ table:not(#myBooks > table) {
     width: 90%;
 }
 
-a[href] {
+td > a[href] {
     text-decoration: none;
-}
-
-.book_title {
-    font-size: 19px;
-    color: #173157;
-    font-weight: bold;
 }
 
 input[type="button"] {
