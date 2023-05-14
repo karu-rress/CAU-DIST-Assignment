@@ -1,10 +1,9 @@
 <?php
-
+    # 로그인이 되지 않은 상태에서 강제로 접속하는 것을 차단합니다.
     if (isset($_COOKIE['userlevel']) == false) {
         http_response_code(403);
         die('403 Forbidden');
     }
-
 
     include '../db/connect.php';
 

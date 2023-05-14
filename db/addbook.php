@@ -15,8 +15,7 @@
 
     $result = $stmt->get_result();
     $num = $result->num_rows;
-
-    if ($num != 0) {
+    if ($num !== 0) {
         $stmt->close();
         echo "<script>alert('이미 존재하는 ISBN입니다.');
             location.href = '/account/signup.html';</script>";
@@ -26,19 +25,8 @@
     $author = $_POST['add_author'];
     $publisher = $_POST['add_publisher'];
 
-    /*
-+-----------+-------------+------+-----+---------+-------+
-| Field     | Type        | Null | Key | Default | Extra |
-+-----------+-------------+------+-----+---------+-------+
-| isbn      | bigint      | NO   | PRI | NULL    |       |
-| title     | varchar(80) | NO   |     | NULL    |       |
-| author    | varchar(45) | NO   |     | NULL    |       |
-| publisher | varchar(45) | NO   |     | NULL    |       |
-| takenby   | varchar(45) | YES  |     | NULL    |       |
-| uploaded  | date        | YES  |     | NULL    |       |
-+-----------+-------------+------+-----+---------+-------+
-    */
-    $stmt = $connect->prepare("INSERT INTO bookinfo(isbn, title, author, publisher, uploaded) VALUES(?, ?, ?, ?, NOW())");
+    $stmt = $connect->prepare("INSERT INTO bookinfo(isbn, title, author, publisher, uploaded) 
+        VALUES(?, ?, ?, ?, NOW())");
     $stmt->bind_param('dsss', $isbn, $title, $author, $publisher);
     $stmt->execute();
 

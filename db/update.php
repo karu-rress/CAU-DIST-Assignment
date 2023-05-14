@@ -18,7 +18,7 @@
     $stmt->execute();
 
     $rows = $stmt->affected_rows;
-    if ($rows == 0) {
+    if ($rows === 0) {
         $stmt->close();
         echo '<script>alert("오류가 발생했습니다. ISBN을 확인하세요.");
         location.href = "/manage/about.php?isbn=' . $isbn .'"</script>';

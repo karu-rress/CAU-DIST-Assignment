@@ -1,16 +1,17 @@
 <?php
     include '../db/connect.php';
 
-    $query = "SELECT * FROM bookinfo
+    # SUBQUERY: 상댓값으로 '새로 들어온 도서' 결정
+    $stmt = $connect->prepare("SELECT * FROM bookinfo
         WHERE DATEDIFF(uploaded, NOW()) <= (
             SELECT AVG(DATEDIFF(uploaded, NOW()))
             FROM bookinfo
-        )";
-    $stmt = $connect->prepare($query);
+        )"
+    );
     $stmt->execute();    
     $result = $stmt->get_result();
     $stmt->close();
-    $is_admin = ($_COOKIE['userlevel'] ?? "") == 'admin';
+    $is_admin = ($_COOKIE['userlevel'] ?? "") === 'admin';
 ?>
 <!DOCTYPE html>
 <html lang="ko">

@@ -156,6 +156,12 @@ export function search(event : Event) {
         return;
     }
 
+    // SQL injection prevention
+    if (['--', ';', '*'].some(s => search.includes(s))) {
+        alert("입력할 수 없는 특수문자가 포함되어 있습니다.");
+        return;
+    }
+
     const encoded = encodeURIComponent(search);
     const option = (document.querySelector('input[value="AND"]') as HTMLInputElement).checked ? "AND" : "OR";
     location.href = `/books/search.php?search=${encoded}&option=${option}`;

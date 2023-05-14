@@ -28,7 +28,7 @@
     }
 
     $userpwd = hash("sha256", $_POST['signin_pwd']);
-    if (str_replace(' ', '', $row[1]) != $userpwd) { # password not matches?
+    if (str_replace(' ', '', $row[1]) !== $userpwd) { # password not matches?
         echo "<script>alert('비밀번호가 일치하지 않습니다.');
         location.href = '/account/signin.html';</script>";
     }

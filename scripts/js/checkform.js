@@ -140,6 +140,11 @@ export function search(event) {
         alert("검색어를 입력해주세요.");
         return;
     }
+    // SQL injection prevention
+    if (['--', ';', '*'].some(s => search.includes(s))) {
+        alert("입력할 수 없는 특수문자가 포함되어 있습니다.");
+        return;
+    }
     const encoded = encodeURIComponent(search);
     const option = document.querySelector('input[value="AND"]').checked ? "AND" : "OR";
     location.href = `/books/search.php?search=${encoded}&option=${option}`;

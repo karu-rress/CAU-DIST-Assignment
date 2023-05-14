@@ -1,11 +1,22 @@
 <?php
     include '../db/connect.php';
 
+    # 띄어쓰기 단위로 분해한 후 AND, OR 조건을 통해 검색
     $search_query = $_GET['search'];
+
+    # SQL Injection 코드를 분명 클라이언트단에서 걸렀는데, 그래도 쿼리에 포함되어 있다면
+    # 사용자가 의도적으로 자바스크립트를 조작한 경우.
+    if (preg_match('(\*|;|--)', $search_query) === 1) {
+        http_response_code(406);
+        die('406 Not allowed');
+    }
+
     $option = $_GET['option'];
     $search_query_refined = preg_replace('/\s+/', ' ', $search_query);
     $search_words = explode(' ', $search_query_refined);
 
+    # bind_param을 여러 번 사용할 수 없어 여기서는 SQL Injection을
+    # 클라이언트와 서버단에서 각각 처리
     $query = "SELECT * FROM bookinfo ";
     $first = true;
     foreach ($search_words as &$word) {
@@ -17,7 +28,7 @@
     $stmt->execute();    
     $result = $stmt->get_result();
     $stmt->close();
-    $is_admin = ($_COOKIE['userlevel'] ?? "") == 'admin';
+    $is_admin = ($_COOKIE['userlevel'] ?? "") === 'admin';
 ?>
 <!DOCTYPE html>
 <html lang="ko">

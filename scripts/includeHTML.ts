@@ -8,10 +8,10 @@ export function includeHTML(callback?: Function) {
             // make an HTTP request using the attribute value as the file name
             const xhr = new XMLHttpRequest();
             xhr.addEventListener('readystatechange', function() {
-                if (this.readyState != 4) {
+                if (this.readyState !== 4) {
                     return;
                 }
-                if (this.status == 200) {
+                if (this.status === 200) {
                     elmnt.innerHTML = this.responseText;
                 }
                 // remove the attribute, and call this function once more

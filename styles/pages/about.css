@@ -2,7 +2,6 @@ article {
     margin-left: 7vw;
 }
 
-
 h1 {
     color: #144AA9EE;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
@@ -35,7 +34,6 @@ input[type="button"] {
     height: 50px;
     background-color: #285BA9CC;
 }
-
 
 select, option {
     margin: auto;

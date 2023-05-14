@@ -1,6 +1,9 @@
 <?php
     include '../db/connect.php';
+
     $isbn = $_GET['isbn'];
+
+    # LEFT JOIN: detail 정보가 있는 경우에만 추가로 표시
     $stmt = $connect->prepare("SELECT info.*, price, published, link, details.isbn AS isbn_d
         FROM bookinfo AS info
         LEFT OUTER JOIN bookdetails AS details
@@ -12,10 +15,14 @@
     $row = $result->fetch_array();
     $stmt->close();
 
-    $checked = $row['takenby'] != null;
-    $is_admin = ($_COOKIE['userlevel'] ?? "") == 'admin';
+    # 주소창으로 잘못된 접근을 할 시 차단
+    if (isset($row['isbn']) === false) {
+        http_response_code(404);
+        die('404 Not found');
+    }
 
-    # JOIN JOIN JOIN
+    $checked = !empty($row['takenby']);
+    $is_admin = ($_COOKIE['userlevel'] ?? "") === 'admin';
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -39,7 +46,7 @@
     <h3><? echo $row['author'] ?> 저</h3>
     <b><? echo $row['publisher'] ?> | ISBN <? echo $row['isbn'] ?> | <? echo $row['uploaded'] ?> 등록</b>
     <br><br>
-    <?php if (isset($row['isbn_d'])): ?>
+    <?php if (isset($row['isbn_d'])): # detail 테이블에 정보가 있는가? ?>
         <b>정가: <? echo $row['price'] ?>원 | 출판일:  <? echo $row['published'] ?> | 
         <a target="_blank" href="<? echo $row['link'] ?>">도서 구매 링크</a></b>
         <br><br>

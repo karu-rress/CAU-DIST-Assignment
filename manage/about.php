@@ -8,6 +8,12 @@
     $result = $stmt->get_result();
     $row = $result->fetch_array();
     $stmt->close();
+
+    # 주소창으로 잘못된 접근을 할 시 차단
+    if (isset($row['isbn']) === false) {
+        http_response_code(404);
+        die('404 Not found');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="ko">

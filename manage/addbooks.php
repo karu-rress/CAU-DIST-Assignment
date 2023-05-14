@@ -1,10 +1,10 @@
 <?php
-    if (($_COOKIE['userlevel'] ?? "") != "admin") {
+    # 관리자가 아닌데 강제로 접근한다면 접속 차단
+    if (($_COOKIE['userlevel'] ?? "") !== "admin") {
         http_response_code(403);
         die('403 Forbidden');
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>

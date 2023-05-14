@@ -6,7 +6,7 @@
     $result = $stmt->get_result();
     $stmt->close();
 
-    $is_admin = ($_COOKIE['userlevel'] ?? "") == 'admin';
+    $is_admin = ($_COOKIE['userlevel'] ?? "") === 'admin';
 ?>
 <!DOCTYPE html>
 <html lang="ko">

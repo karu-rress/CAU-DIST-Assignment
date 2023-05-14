@@ -42,7 +42,6 @@ form:not([class="search"]):not([id="myBooks"]) > input {
     font-size: 20px;
 }
 
-
 /* book edit */
 form:not([class="search"]):not([id="myBooks"]) > div > input {
     margin: 20 auto;

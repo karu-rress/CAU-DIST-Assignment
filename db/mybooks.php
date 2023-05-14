@@ -16,7 +16,7 @@
             $stmt->bind_param('i', $isbn);
             $stmt->execute();
             $rows = $stmt->affected_rows;
-            if ($rows == 0) {
+            if ($rows === 0) {
                 throw new Exception("SQL error");
             }
 
