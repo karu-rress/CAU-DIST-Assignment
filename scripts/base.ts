@@ -1,4 +1,4 @@
-import { showIfById, showIfByClass } from './user.js';
+import { showIfById, showIfByClass, getUser } from './user.js';
 import { includeHTMLAsync } from './includeHTML.js';
 import * as check from './checkform.js';
 
@@ -36,3 +36,9 @@ document.querySelector('#modes')?.addEventListener('change', function() {
         location.href = "/books/about.php?isbn=" + isbn;
     }
 })
+
+document.querySelector('[value="로그아웃"]')?.addEventListener(click, function() {
+    document.cookie = "userlevel=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT";
+    alert('로그아웃 되었습니다.')
+    location.href = "/index.html";
+});

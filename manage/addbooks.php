@@ -1,3 +1,10 @@
+<?php
+    if (($_COOKIE['userlevel'] ?? "") != "admin") {
+        http_response_code(403);
+        die('403 Forbidden');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>

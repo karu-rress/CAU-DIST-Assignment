@@ -1,4 +1,11 @@
 <?php
+
+    if (isset($_COOKIE['userlevel']) == false) {
+        http_response_code(403);
+        die('403 Forbidden');
+    }
+
+
     include '../db/connect.php';
 
     $stmt = $connect->prepare("SELECT * FROM bookinfo WHERE takenby = ?");
@@ -58,6 +65,7 @@
                 </table>
                 <input type="button" value="일괄 반납">
                 <p>반납할 책을 선택한 후 '일괄 반납' 버튼을 클릭하면 한 번에 반납할 수 있습니다.</p>
+                <input type="button" value="로그아웃">
             </form>
         </article>
     </div>

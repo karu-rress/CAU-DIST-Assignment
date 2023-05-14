@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 import { showIfById, showIfByClass } from './user.js';
 import { includeHTMLAsync } from './includeHTML.js';
 import * as check from './checkform.js';
@@ -40,4 +40,9 @@ const click = 'click';
     else if (value === 'userMode') {
         location.href = "/books/about.php?isbn=" + isbn;
     }
+});
+(_l = document.querySelector('[value="로그아웃"]')) === null || _l === void 0 ? void 0 : _l.addEventListener(click, function () {
+    document.cookie = "userlevel=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT";
+    alert('로그아웃 되었습니다.');
+    location.href = "/index.html";
 });
