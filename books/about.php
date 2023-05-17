@@ -9,7 +9,7 @@
         LEFT OUTER JOIN bookdetails AS details
         ON info.isbn = details.isbn
         WHERE info.isbn = ?");
-    $stmt->bind_param('d', $isbn);
+    $stmt->bind_param('i', $isbn);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_array();

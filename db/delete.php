@@ -13,8 +13,7 @@
     $stmt->bind_param('i', $isbn);
     $stmt->execute();
 
-    $rows = $stmt->affected_rows;
-    if ($rows === 0) {
+    if ($stmt->affected_rows === 0) {
         $stmt->close();
         echo '<script>alert("존재하지 않는 ISBN이거나 삭제 과정에서 오류가 발생했습니다.");
         location.href = "/manage/about.php?isbn=' . $isbn .'";</script>';
