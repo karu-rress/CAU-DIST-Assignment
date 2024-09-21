@@ -17,7 +17,7 @@
 `runme.exe -r` 을 통해 `library_db.sql` 파일에서 `library` DB의 내용을 불러옵니다.
   \
 `runme.exe -b` 을 통해 데이터베이스를 백업할 수 있습니다.
-
+```c
     .                 // runme.exe, index.html, library_db.sql, readme.md 등
     ├───account       // 사용자가 접근하는 계정 관련 페이지입니다.
     ├───books         // 사용자가 접근하는 책 관련 페이지입니다.
@@ -28,10 +28,10 @@
     ├───scripts       // TypeScript로 작성된 파일들입니다.
     │   └───js        // TypeScript를 컴파일한 JavaScript 결과물입니다.
     └───styles        // CSS 파일들입니다.
-
-20234748.sql 파일과 library_db.sql 파일은 내용이 동일합니다.\
+```
+`20234748.sql` 파일과 `library_db.sql` 파일은 내용이 동일합니다.\
 과제 제출 조건을 만족하기 위해 학번으로 된 파일을 따로 생성하였으며,\
-`runme.exe` 파일에서는 library_db.sql 파일을 사용하기에 동일한 파일을\
+`runme.exe` 파일에서는 `library_db.sql` 파일을 사용하기에 동일한 파일을\
 생성하였습니다.
 
 ## 웹페이지 소개
@@ -49,13 +49,13 @@
 - 마이페이지에서 체크박스를 통해 대출한 도서를 일괄 반납할 수 있습니다.
 - '새로 들어온 도서' 에서는 SubQuery를 이용하여 도서 중 상위 50% 이내로 일찍 들어온 도서를 나열합니다.
 - 각 책의 상세페이지에서는 LEFT JOIN을 이용하여 추가 정보를 출력합니다.
-- 동일한 페이지 내에서 PHP를 이용해 Guest/User/Admin의 기능을 구분했습니다(/books/listall.php 등)
+- 동일한 페이지 내에서 PHP를 이용해 Guest/User/Admin의 기능을 구분했습니다. (/books/listall.php 등)
 - 검색창에서 Radio Button을 이용하여 AND, OR 검색 옵션을 지정할 수 있습니다.
 - CSS를 활용하여 심미성을 강조한 표 디자인을 완성했고, 마우스 포인터가 올려진 셀이 강조됩니다.
 
 ## 보안 관련 기능 소개
 - mysqli 함수를 직접 사용하지 않고, 객체를 생성하여 매개변수를 바인딩하는 형식으로 SQL Injection 취약점을 보완했습니다.
-- 기본적으로 bind_param() 메서드를 사용하나, 검색 환경과 같이 파라미터가 가변적인 경우에는 해당 함수를 사용할 수 없습니다.
+- 기본적으로 `bind_param()` 메서드를 사용하나, 검색 환경과 같이 파라미터가 가변적인 경우에는 해당 함수를 사용할 수 없습니다.
 - 이에, 이곳에서는 예외적으로 TypeScript(JavaScript)/PHP를 활용하여 Client-/Server-Side 모두에서 SQL Injection에 사용되는 특수문자를 걸러내는 방식으로 동작합니다.
 - 허가되지 않은 사용자가 권한이 없는 페이지에 접속할 경우 403 Error를 내며 연결이 차단됩니다.
 - COOKIE를 이용하여 Client-및 Server-side에서 사용자 정보를 관리합니다.
@@ -88,7 +88,7 @@
   
   
 # 조건/요구사항
-## [완료] `[HTML, CSS]` 입력 폼은 다음 중에 최소 4개를 사용해야 함.
+## [완료] \[HTML, CSS\] 입력 폼은 다음 중에 최소 4개를 사용해야 함.
 (text와 password는 2개로 인정하지 않고, 동일 form 객체로 인정함)
 - [X] text/password box (로그인 등에 사용)
 - [ ] textarea
@@ -97,41 +97,42 @@
 - [X] dropdown list = select/option tag (관리자용 책 정보 페이지에서 사용)
 - [ ] 그 외 HTML5에서 사용되는 calendar 등 다른 입력 폼도 허용됨
  
-## [완료] `[PHP]`
+## [완료] \[PHP\]
 - [X] 회원가입 및 Login 페이지는 필수 (로그인 후, 회원 전용 페이지와 비회원 페이지 구별)
 - [X] 나머지는 주제와 관련된 페이지로 구성하되, 1~3번의 조건/요구사항을 만족하는 페이지로 구성한다.   
 예) 도서 대여 사이트인 경우, 비회원은 대여 불가하고, 전체 도서 목록만 열람 가능하며, 회원은 대여 가능  
     도서를 등록/수정/삭제하는 페이지가 필요하며, 회원이 도서 대여시 전체 도서 목록을 열람하는 페이지에서
     "대여가능"->"대여불가"로 상태변경해서 보여주어야 함
  
-## [완료] `[DB]`
+## [완료] \[DB\]
 - [X] 반드시 Join과 Subquery를 각각 1번 이상 사용하여 query를 작성하고, 이를 결과로 보여주어야 함. (Join - 상세페이지, Subquery - 새로들어온 책)
 - [X] 수정/삭제 기능을 위해서 update와 delete 사용
 - [X] 테이블의 개수는 최소 4개 이상이어야 하며,
 - [X] 각 테이블 당 record의 개수는 최소 10개 이상
  
 
-## `[제출]` 제출해야 할 파일은 전체 소스코드와 데이터베이스 백업 파일을 모두 압축하여 학번.zip파일로 제출
+## \[제출\] 제출해야 할 파일은 전체 소스코드와 데이터베이스 백업 파일을 모두 압축하여 학번.zip파일로 제출
 
 백업 받을 때, 다음과 같이 (학번.sql 파일) 형태로...  // DB이름: test, Table이름: info 인 경우  
-
-    C:\Users\Administrator>mysqldump -u root -p test info > 20221001.sql  
-
+```batch
+C:\Users\Administrator>mysqldump -u root -p test info > 20221001.sql  
+```
 백업 후 반드시 백업이 잘 되었는지 sql 파일을 메모장에서 확인할 것.  
 (반드시) 아래와 같이 테이블 생성 쿼리 및 저장 쿼리가 있어야 함.  
-
-    CREATE TABLE `info` (
+```sql
+CREATE TABLE `info` (
     `id` varchar(15) NOT NULL,
     `pwd` varchar(15) NOT NULL,
     `name` varchar(20) NOT NULL,
     `age` int DEFAULT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-    /*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
     
-    --
-    -- Dumping data for table `info`
-    --
+--
+-- Dumping data for table `info`
+--
     
-    LOCK TABLES `info` WRITE;
-    /*!40000 ALTER TABLE `info` DISABLE KEYS */;
-    INSERT INTO `info` VALUES ('admin','admin','administrator1',66);
+LOCK TABLES `info` WRITE;
+/*!40000 ALTER TABLE `info` DISABLE KEYS */;
+INSERT INTO `info` VALUES ('admin','admin','administrator1',66);
+```
