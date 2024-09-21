@@ -1,13 +1,33 @@
 # [CAU] Digital Information Security Technology
-  
-중앙대학교 산업보안학과 전공필수 '전자정보 보안기술' 과제입니다.\
-(현재 정보보안론(Information Security)로 과목명이 변경되었습니다)
 
-**과목 정보**
-- 과목유형: 이론 강의
-- 이수학점: 3학점
-- 강의시간: 3시간
-- 취득평점: A+(4.5)
+<table>
+  <tr>
+    <th colspan="4">과목 정보</th>
+  </tr>
+  <tr>
+    <td><b>개설대학</b></td><td>경영경제대학</td>
+    <td><b>개설학과</b></td><td>산업보안학과</td>
+  </tr>
+  <tr>
+    <td><b>대상학년</b></td><td>2학년</td>
+    <td><b>이수구분</b></td><td>전공필수</td>
+  </tr>
+  <tr>
+    <td><b>과목유형</b></td><td>이론강의</td>
+    <td><b>영어강의</b></td><td>영어 A</td>
+  </tr>
+  <tr>
+    <td><b>이수학점</b></td><td>3학점</td>
+    <td><b>강의시간</b></td><td>3시간</td>
+  </tr>
+  <tr>
+    <th colspan="4">이수 내역</th>
+  </tr>
+  <tr>
+    <td><b>이수학기</b></td><td>1-1</td>
+    <td><b>취득평점</b></td><td>A+(4.5)</td>
+  </tr>
+</table>
 
 `Readme.txt`에 동일한 내용이 재구성되어 작성되었습니다. (과제 제출용)
 
