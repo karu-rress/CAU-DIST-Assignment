@@ -5,7 +5,7 @@
     </head>
 <body>
 <?php
-    include 'connect.php';
+    include './connect.php';
 
     # 입력값이 비었는지는 Client (signin.html) 단에서 구현
     $id = $_POST['signin_id'];
@@ -24,17 +24,17 @@
     if (!$num) {
         echo "<script>
         alert('존재하지 않는 ID입니다.\\n회원가입을 해주세요.');
-        location.href = '/account/signup.html';</script>";
+        location.href = '../account/signup.html';</script>";
     }
 
     $userpwd = hash("sha256", $_POST['signin_pwd']);
     if (str_replace(' ', '', $row[1]) !== $userpwd) { # password not matches?
         echo "<script>alert('비밀번호가 일치하지 않습니다.');
-        location.href = '/account/signin.html';</script>";
+        location.href = '../account/signin.html';</script>";
     }
     else {
     echo '<script>document.cookie = "userlevel=' . $id . '; path=/";
-        location.href = "/index.html";</script>';
+        location.href = "../index.html";</script>';
     }
 ?>
 </body>

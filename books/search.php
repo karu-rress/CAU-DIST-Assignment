@@ -35,19 +35,19 @@
 <head>
     <meta charset="UTF-8">
     <title>검색 결과 | Rolling Ress Library</title>
-    <link rel="stylesheet" href="/styles/pages/listall.css">
-    <link rel="stylesheet" href="/styles/form.css">
-    <link rel="stylesheet" href="/styles/attribute.css">
-    <link rel="stylesheet" href="/styles/part/header.css">
-    <link rel="stylesheet" href="/styles/part/nav.css">
-    <link rel="stylesheet" href="/styles/part/footer.css">
-    <link rel="icon" href="/resources/Rolling Ress.png">
-    <script defer type="module" src="/scripts/js/base.js"></script>
+    <link rel="stylesheet" href="../styles/pages/listall.css">
+    <link rel="stylesheet" href="../styles/form.css">
+    <link rel="stylesheet" href="../styles/attribute.css">
+    <link rel="stylesheet" href="../styles/part/header.css">
+    <link rel="stylesheet" href="../styles/part/nav.css">
+    <link rel="stylesheet" href="../styles/part/footer.css">
+    <link rel="icon" href="../resources/Rolling Ress.png">
+    <script defer type="module" src="../scripts/js/base.js"></script>
 </head>
 <body>
     <div id="wrap">
-        <header include-html="/htmls/header.html"></header>
-        <nav include-html="/htmls/nav.html"></nav>
+        <header include-html="../htmls/header.html"></header>
+        <nav include-html="../htmls/nav.html"></nav>
         <article>
             <h1 id="article_title">'<? echo $search_query?>' 검색 결과</h1>
             <table cellspacing="0" cellpadding="5">
@@ -61,9 +61,9 @@
                     <tr>
                     <td>
                         <?php if ($is_admin): ?>
-                            <a href='/manage/about.php?isbn=<? echo $row['isbn'] ?>'>
+                            <a href='../manage/about.php?isbn=<? echo $row['isbn'] ?>'>
                         <?php else: ?>
-                            <a href='/books/about.php?isbn=<? echo $row['isbn'] ?>'>
+                            <a href='../books/about.php?isbn=<? echo $row['isbn'] ?>'>
                         <?php endif; ?>
                         <span class='book_title'><? echo $row['title'] ?></span>
                         </a>
@@ -84,6 +84,6 @@
             </table>
         </article>
     </div>
-    <footer include-html="/htmls/footer.html"></footer>
+    <footer include-html="../htmls/footer.html"></footer>
 </body>
 </html>
