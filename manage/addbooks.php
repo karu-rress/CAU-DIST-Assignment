@@ -10,20 +10,20 @@
 <head>
     <meta charset="UTF-8"/>
     <title>도서 추가 | Rolling Ress Library</title>
-    <link rel="stylesheet" href="../styles/form.css">
-    <link rel="stylesheet" href="../styles/attribute.css">
-    <link rel="stylesheet" href="../styles/part/header.css">
-    <link rel="stylesheet" href="../styles/part/nav.css">
-    <link rel="stylesheet" href="../styles/part/footer.css">
-    <link rel="icon" href="../resources/Rolling Ress.png">
-    <script defer type="module" src="../scripts/js/base.js"></script>
+    <link rel="stylesheet" href="/styles/form.css">
+    <link rel="stylesheet" href="/styles/attribute.css">
+    <link rel="stylesheet" href="/styles/part/header.css">
+    <link rel="stylesheet" href="/styles/part/nav.css">
+    <link rel="stylesheet" href="/styles/part/footer.css">
+    <link rel="icon" href="/resources/Rolling Ress.png">
+    <script defer type="module" src="/scripts/js/base.js"></script>
 </head>
 <body>
-    <header include-html="../htmls/header.html"></header>
-    <nav include-html="../htmls/nav.html"></nav>
+    <header include-html="/htmls/header.html"></header>
+    <nav include-html="/htmls/nav.html"></nav>
     <article>
         <h1>도서 추가</h1>
-        <form id="book_form" name="add_book" action="../db/addbook.php" method="post">
+        <form id="book_form" name="add_book" action="/db/addbook.php" method="post">
             <input required minlength="13" type="text" id="add_isbn" name="add_isbn" class="box" placeholder="ISBN"/>
             <input required type="text" id="add_title" name="add_title" class="box" placeholder="제목"/>
             <input required type="text" id="add_author" name="add_author" class="box" placeholder="저자"/>
@@ -32,6 +32,6 @@
             <input type="button" class="actionbutton" value="등록"/>
         </form>
     </article>
-    <footer include-html="../htmls/footer.html"></footer>
+    <footer include-html="/htmls/footer.html"></footer>
 </body>
 </html>

@@ -29,17 +29,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Book Info | Rolling Ress Library</title>
-    <link rel="stylesheet" href="../styles/pages/about.css">
-    <link rel="stylesheet" href="../styles/attribute.css">
-    <link rel="stylesheet" href="../styles/part/header.css">
-    <link rel="stylesheet" href="../styles/part/nav.css">
-    <link rel="stylesheet" href="../styles/part/footer.css">
-    <link rel="icon" href="../resources/Rolling Ress.png">
-    <script defer type="module" src="../scripts/js/base.js"></script>
+    <link rel="stylesheet" href="/styles/pages/about.css">
+    <link rel="stylesheet" href="/styles/attribute.css">
+    <link rel="stylesheet" href="/styles/part/header.css">
+    <link rel="stylesheet" href="/styles/part/nav.css">
+    <link rel="stylesheet" href="/styles/part/footer.css">
+    <link rel="icon" href="/resources/Rolling Ress.png">
+    <script defer type="module" src="/scripts/js/base.js"></script>
 </head>
 <body>
-    <header include-html="../htmls/header.html"></header>
-    <nav include-html="../htmls/nav.html"></nav>
+    <header include-html="/htmls/header.html"></header>
+    <nav include-html="/htmls/nav.html"></nav>
     <article>
     <h1>책 정보</h1>
     <h2><? echo $row['title'] ?></h2>
@@ -93,6 +93,6 @@
     <?php endif;   ?>
 
     </article>
-    <footer include-html="../htmls/footer.html"></footer>
+    <footer include-html="/htmls/footer.html"></footer>
 </body>
 </html>

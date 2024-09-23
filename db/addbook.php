@@ -18,7 +18,7 @@
     if ($num !== 0) {
         $stmt->close();
         echo "<script>alert('이미 존재하는 ISBN입니다.');
-            location.href = '../account/signup.html';</script>";
+            location.href = '/account/signup.html';</script>";
     }
 
     $title = $_POST['add_title'];
@@ -34,7 +34,7 @@
 
     $stmt->close();
 
-    echo '<script>location.href = "../books/all.php";</script>';
+    echo '<script>location.href = "/books/all.php";</script>';
 ?>
 </body>
 </html>
